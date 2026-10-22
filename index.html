@@ -34,7 +34,7 @@
   --gold:#dcb15a;--gold-soft:#2c2614;--teal:#5fb3a8;--sky:#132b29;--shade:rgba(4,14,13,.7);color-scheme:dark}
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--surface)}
@@ -57,7 +57,7 @@ p{margin:0}
 
 /* ---- header ---- */
 .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.top .wrap{display:flex;align-items:center;gap:18px;height:68px}
+.top .wrap{display:flex;align-items:center;gap:18px;height:76px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:none}
 .brand svg{width:30px;height:30px;color:var(--gold)}
 .brand b{font-family:var(--f-title);font-weight:400;font-size:1.25rem;letter-spacing:.06em}
@@ -76,7 +76,7 @@ p{margin:0}
 .top .btn{padding:9px 16px;font-size:.88rem}
 .menu-btn{display:none;border:1px solid var(--line);background:none;border-radius:8px;padding:8px 10px;cursor:pointer;color:var(--ink)}
 @media (max-width:1060px){
-  .nav{display:none;position:absolute;top:68px;left:0;right:0;background:var(--surface);flex-direction:column;padding:10px max(20px,env(safe-area-inset-right,0px)) 18px max(20px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--line)}
+  .nav{display:none;position:absolute;top:76px;left:0;right:0;background:var(--surface);flex-direction:column;padding:10px max(20px,env(safe-area-inset-right,0px)) 18px max(20px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--line)}
   .nav.open{display:flex}
   .menu-btn{display:block;margin-left:auto}
   .top .btn{display:none}
@@ -112,6 +112,7 @@ p{margin:0}
 .orgs{background:var(--surface);border-bottom:1px solid var(--line)}
 .orgs .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding-block:22px}
 .org{padding:6px 22px;border-left:1px solid var(--line);min-width:0}
+.org > div{min-width:0}
 .org:first-child{border-left:0;padding-left:0}
 .org small{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
 .org p{font-weight:600;font-size:.98rem;line-height:1.35;margin-top:4px}
@@ -280,6 +281,26 @@ footer{background:#0d2422;color:#cfdcd8;font-size:.88rem}
 footer .wrap{padding-block:36px;display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:center}
 footer .brand b{color:#fff}
 footer .brand span{color:#9fb5b0}
+/* logos: light/dark swaps */
+.only-dark{display:none!important}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .only-dark{display:block!important}:root:not([data-theme="light"]) .only-light{display:none!important}}
+:root[data-theme="dark"] .only-dark{display:block!important}:root[data-theme="dark"] .only-light{display:none!important}
+.brand img{height:62px;width:auto;display:block}
+.hero-orgs{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;margin-bottom:34px}
+.hero-orgs figure{margin:0;display:flex;align-items:center;gap:12px}
+.hero-orgs figcaption{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#f0d79c;line-height:1.4;max-width:12ch}
+.hero-orgs .badge{height:76px;width:auto;filter:drop-shadow(0 4px 12px rgba(0,0,0,.35))}
+.hero-orgs .aiu{height:96px;width:auto}
+.hero-orgs .sep{width:1px;height:48px;background:rgba(255,255,255,.3)}
+.org{display:flex;align-items:center;gap:16px}
+.org .org-logo{height:72px;width:auto;flex:none}
+.org .org-aiu{height:84px;width:auto;flex:none}
+.foot-logos{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.foot-logos .kihc{height:72px;width:auto}
+.foot-logos .badge{height:58px;width:auto}
+.foot-logos .aiu{height:62px;width:auto}
+.foot-logos .sep{width:1px;height:44px;background:rgba(255,255,255,.2)}
+@media (max-width:520px){.hero-orgs .sep{display:none}.hero-orgs .badge{height:54px}.hero-orgs .aiu{height:58px}}
 .star-rule{display:flex;align-items:center;gap:14px;color:var(--gold);margin-top:22px}
 .star-rule::before,.star-rule::after{content:"";height:1px;flex:1;background:var(--line)}
 .star-rule svg{width:16px;height:16px}
@@ -311,8 +332,8 @@ footer .brand span{color:#9fb5b0}
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#home" aria-label="KIHC 2027 home">
-      <svg aria-hidden="true"><use href="#star-o"/></svg>
-      <div><b>KIHC 2027</b><span>KEDAH · MALAYSIA</span></div>
+      <img class="only-light" src="img/logo-kihc.png" alt="2nd Kedah International Health Conference 2027">
+      <img class="only-dark" src="img/logo-kihc-reverse.png" alt="2nd Kedah International Health Conference 2027">
     </a>
     <nav class="nav" id="nav">
       <a href="#about" data-i18n="nav.about">About</a>
@@ -337,6 +358,11 @@ footer .brand span{color:#9fb5b0}
 <section class="hero">
   <img class="bg" src="img/hero-night.jpg" alt="Albukhary International University main hall at dusk, its arched entrance lit gold">
   <div class="wrap">
+    <div class="hero-orgs">
+      <figure><img class="badge" src="img/logo-pppkank.png" alt="Persatuan Pakar Perubatan Kesihatan Awam Negeri Kedah"><figcaption data-i18n="org.l1">Organised by</figcaption></figure>
+      <span class="sep" aria-hidden="true"></span>
+      <figure><figcaption data-i18n="org.co">Co-organiser</figcaption><img class="aiu" src="img/logo-aiu-reverse.png" alt="Albukhary International University"></figure>
+    </div>
     <p class="kicker" data-i18n="hero.kicker">2nd Kedah International Health Conference</p>
     <h1>
       <span class="l1" data-i18n="hero.l1">Planet, People &amp; Partnership</span>
@@ -362,9 +388,9 @@ footer .brand span{color:#9fb5b0}
 
 <section class="orgs" aria-label="Organisers">
   <div class="wrap">
-    <div class="org"><small data-i18n="org.l1">Organised by</small><p>Persatuan Pakar Perubatan Kesihatan Awam Negeri Kedah</p></div>
-    <div class="org"><small data-i18n="org.l2">In collaboration with</small><p data-i18n="org.jkn">Kedah State Health Department</p></div>
-    <div class="org"><small data-i18n="org.l3">Co-organiser &amp; host venue</small><p>Albukhary International University</p></div>
+    <div class="org"><img class="org-logo" src="img/logo-pppkank.png" alt=""><div><small data-i18n="org.l1">Organised by</small><p>Persatuan Pakar Perubatan Kesihatan Awam Negeri Kedah</p></div></div>
+    <div class="org"><div><small data-i18n="org.l2">In collaboration with</small><p data-i18n="org.jkn">Kedah State Health Department</p></div></div>
+    <div class="org"><img class="org-aiu only-light" src="img/logo-aiu.png" alt="Albukhary International University"><img class="org-aiu only-dark" src="img/logo-aiu-reverse.png" alt="Albukhary International University"><div><small data-i18n="org.l3">Co-organiser &amp; host venue</small><p>Albukhary International University</p></div></div>
   </div>
 </section>
 
@@ -604,7 +630,12 @@ footer .brand span{color:#9fb5b0}
 
 <footer>
   <div class="wrap">
-    <div class="brand"><svg style="color:#dcb15a"><use href="#star-o"/></svg><div><b>KIHC 2027</b><span>2ND KEDAH INTERNATIONAL HEALTH CONFERENCE</span></div></div>
+    <div class="foot-logos">
+      <img class="kihc" src="img/logo-kihc-reverse.png" alt="2nd Kedah International Health Conference 2027">
+      <span class="sep" aria-hidden="true"></span>
+      <img class="badge" src="img/logo-pppkank.png" alt="Persatuan Pakar Perubatan Kesihatan Awam Negeri Kedah">
+      <img class="aiu" src="img/logo-aiu-reverse.png" alt="Albukhary International University">
+    </div>
     <span data-i18n="foot">© 2027 Persatuan Pakar Perubatan Kesihatan Awam Negeri Kedah · Co-organised with Albukhary International University</span>
   </div>
 </footer>
@@ -632,7 +663,7 @@ en:{"cat.spec":"Specialists & consultants","cat.spec.s":"Medical, dental & publi
 ms:{"nav.about":"Tentang","nav.tracks":"Trek","nav.dates":"Tarikh Penting","nav.programme":"Atur Cara","nav.highlights":"Sorotan","nav.venue":"Lokasi","nav.register":"Pendaftaran","nav.contact":"Hubungi","cta.register":"Daftar sekarang","cta.abstract":"Panggilan abstrak",
 "hero.kicker":"Persidangan Kesihatan Antarabangsa Kedah Kali Ke-2","hero.l1":"Planet, Manusia & Perkongsian","hero.l2":"Memacu Perubahan Mampan","hero.date":"11–12 Ogos 2027","tentative":"Tentatif","hero.venue":"Universiti Antarabangsa Albukhary, Alor Setar",
 "cd.days":"Hari","cd.hours":"Jam","cd.mins":"Minit","cd.secs":"Saat","cd.cap":"Menjelang majlis perasmian · 11 Ogos 2027, 8.30 pagi",
-"org.l1":"Anjuran","org.l2":"Dengan kerjasama","org.jkn":"Jabatan Kesihatan Negeri Kedah","org.l3":"Penganjur bersama & tuan rumah",
+"org.l1":"Anjuran","org.co":"Penganjur bersama","org.l2":"Dengan kerjasama","org.jkn":"Jabatan Kesihatan Negeri Kedah","org.l3":"Penganjur bersama & tuan rumah",
 "about.eye":"Tentang persidangan","about.title":"Satu Kesihatan untuk Kedah yang <em>berdaya tahan</em>, dan seterusnya","about.lede":"Risiko kesihatan kini merentasi manusia, haiwan dan alam sekitar. KIHC 2027 menghimpunkan semua sektor yang membentuknya dalam satu platform.",
 "about.p1":"Perubahan iklim, cuaca panas melampau, pencemaran, penyakit zoonotik, rintangan antimikrob, bencana dan beban penyakit tidak berjangkit yang semakin meningkat tidak dapat diatasi oleh sektor kesihatan sahaja. Gabungan bandar, kawasan padi, komuniti pesisir dan pulau serta sempadan antarabangsa menjadikan Kedah tempat yang sesuai untuk menguji penyelesaian praktikal rentas sektor.",
 "about.p2":"Meneruskan kejayaan KIHC pertama, edisi kedua ini meluaskan fokus daripada penglibatan komuniti kepada Satu Kesihatan (One Health), kesihatan planet, kemampanan dan daya tahan. Selama dua hari, penggubal dasar, pengamal, penyelidik, pihak berkuasa tempatan, industri dan komuniti akan berkongsi bukti dan pulang dengan komitmen yang boleh dilaksanakan.",

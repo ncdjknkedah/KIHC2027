@@ -596,18 +596,14 @@ footer .brand span{color:#9fb5b0}
     <p class="lede" data-i18n="reg.lede">Open to everyone who shapes community health, from clinicians and veterinarians to planners, researchers and community leaders.</p>
     <div class="who" data-chips="who.c"><span>Public health specialists</span><span>Medical &amp; dental officers</span><span>Pharmacists &amp; allied health</span><span>Veterinary officers</span><span>Environmental health officers</span><span>Local authorities &amp; planners</span><span>Disaster management agencies</span><span>Academics &amp; students</span><span>NGOs &amp; community leaders</span><span>Industry &amp; exhibitors</span><span>International partners</span></div>
 
-    <div class="seg" role="group" aria-label="Participant origin">
-      <button type="button" id="seg-local" aria-pressed="true" data-cur="local" data-i18n="fee.local">Malaysian participants (RM)</button>
-      <button type="button" id="seg-intl" aria-pressed="false" data-cur="intl" data-i18n="fee.intl">International participants (USD)</button>
-    </div>
-    <div class="fee-wrap">
+    <div class="fee-wrap" style="margin-top:36px">
       <table class="fees">
-        <thead><tr><th data-i18n="fee.cat">Category</th><th class="eb" data-i18n="fee.eb">Early bird</th><th data-i18n="fee.norm">Normal</th><th data-i18n="fee.onsite">On-site</th></tr></thead>
+        <thead><tr><th data-i18n="fee.cat">Category</th><th class="eb" data-i18n="fee.fee">Fee</th><th data-i18n="fee.cond">Condition</th></tr></thead>
         <tbody id="fee-body"></tbody>
       </table>
     </div>
     <p class="includes" data-i18n="fee.inc">Fee includes conference kit, refreshments and lunch on both days, certificate of attendance and CPD points.</p>
-    <p class="note"><svg width="18" height="18" style="flex:none;color:var(--gold);margin-top:3px"><use href="#star"/></svg><span data-i18n-html="fee.note"><b>Illustrative fees.</b> Amounts shown are placeholders pending approval by the Treasury and Organising Committee.</span></p>
+    <p class="note"><svg width="18" height="18" style="flex:none;color:var(--gold);margin-top:3px"><use href="#star"/></svg><span data-i18n-html="fee.note"><b>Proposed fees.</b> Early or standard rates will be confirmed after the venue quotation is received.</span></p>
 
     <h3 class="sec-title" style="font-size:clamp(1.6rem,3vw,2.2rem);margin-top:64px" data-i18n="pay.title">Ways to pay</h3>
     <div class="pay" style="margin-top:24px">
@@ -643,7 +639,7 @@ footer .brand span{color:#9fb5b0}
               <label><input type="radio" name="pay" id="p-lo" value="lo"> <span data-i18n="pay.lo.short">Government LO</span></label>
             </div></div>
         </div>
-        <div class="total"><span data-i18n="f.total">Amount payable (early bird)</span><b id="f-total">RM 0</b></div>
+        <div class="total"><span data-i18n="f.total">Amount payable</span><b id="f-total">RM 0</b></div>
         <div class="form-foot"><button class="btn dark" type="submit" data-i18n="f.submit">Continue to payment</button><span class="demo" data-i18n="f.demo">DEMO · NO DATA IS SENT</span></div>
         <div class="done" id="f-done" hidden></div>
       </form>
@@ -741,18 +737,12 @@ footer .brand span{color:#9fb5b0}
 
 <script>
 (function(){
-const FEES={
-  local:{cur:"RM",rows:[
-    ["cat.spec","cat.spec.s",650,750,800],
-    ["cat.mo","cat.mo.s",500,600,650],
-    ["cat.ah","cat.ah.s",350,420,480],
-    ["cat.stu","cat.stu.s",150,200,250]]},
-  intl:{cur:"USD",rows:[
-    ["cat.spec","cat.spec.s",220,260,300],
-    ["cat.mo","cat.mo.s",180,220,250],
-    ["cat.ah","cat.ah.s",140,170,200],
-    ["cat.stu","cat.stu.s",70,90,110]]}
-};
+const FEES=[
+  ["cat.my","cond.my","RM",400,0],
+  ["cat.intl","cond.intl","USD",120,1],
+  ["cat.stu","cond.stu","RM",250,0],
+  ["cat.day","cond.day","RM",250,0]
+];
 const TIERS=[
  {k:"diamond",m:"linear-gradient(135deg,#e9f3f7,#9fc7d6)",price:"RM35,000",big:1,
   en:["Diamond","Presenting Partner","Flagship visibility & premium positioning",["Premium two-day exhibition booth in a priority location","Six conference passes and premium logo placement","Full-page e-programme advert and two dedicated social posts","60-second corporate video during breaks; opening/closing acknowledgement"]],
@@ -774,7 +764,7 @@ function renderTiers(){
   document.getElementById("tiers").innerHTML=TIERS.map(x=>{const d=x[lang]||x.en;return `<article class="tier ${x.k}${x.big?" big":""}" style="--m:${x.m}"><div class="tier-head"><span class="metal"><i></i>${esc(d[0])}</span><span class="price">${x.price}</span></div><h3>${esc(d[1])}</h3><p class="sub">${esc(d[2])}</p><ul>${d[3].map(b=>`<li>${esc(b)}</li>`).join("")}</ul></article>`}).join("");
 }
 const T={
-en:{"lunch.l":["One dedicated 45–60-minute educational lunch symposium","Delegates' lunch under an agreed catering allocation","Acknowledgement in the programme, on-screen branding and approved digital promotion","One standard booth and three delegate passes","Session attendance summary, where data is available"],"cat.spec":"Specialists & consultants","cat.spec.s":"Medical, dental & public health specialists","cat.mo":"Medical, dental & veterinary officers","cat.mo.s":"Including pharmacists & scientific officers","cat.ah":"Allied health & other officers","cat.ah.s":"Nurses, AMOs, EHOs, local authority & agency staff","cat.stu":"Students","cat.stu.s":"Full-time, with valid student ID",
+en:{"cat.my":"Malaysian participant","cat.intl":"International participant","cat.day":"Day registration","cond.my":"Early or standard rate to be confirmed after the venue quotation is received","cond.intl":"Exchange rate and payment method to be confirmed","cond.stu":"Limited quota with valid student identification","cond.day":"If operationally feasible and approved","lunch.l":["One dedicated 45–60-minute educational lunch symposium","Delegates' lunch under an agreed catering allocation","Acknowledgement in the programme, on-screen branding and approved digital promotion","One standard booth and three delegate passes","Session attendance summary, where data is available"],"cat.spec":"Specialists & consultants","cat.spec.s":"Medical, dental & public health specialists","cat.mo":"Medical, dental & veterinary officers","cat.mo.s":"Including pharmacists & scientific officers","cat.ah":"Allied health & other officers","cat.ah.s":"Nurses, AMOs, EHOs, local authority & agency staff","cat.stu":"Student","cat.stu.s":"Full-time, with valid student ID",
 "t1.c":["Healthy Cities","Urban Health","Built Environment","Community Empowerment"],"t2.c":["Climate Change","Heat & Air Pollution","Water & Sanitation","Waste Management","Environmental Health"],"t3.c":["NCD","Mental Health","Healthy Ageing","Nutrition","Maternal & Child Health","Adolescent, Women's & Men's Health"],"t4.c":["Infectious Diseases","Zoonoses","Vector-borne Diseases","AMR","Disaster Risk Management","Emergency Preparedness"],"t5.c":["AI","Digital Health","Surveillance","Research","Smart Cities","Precision Public Health"],
 "who.c":["Public health specialists","Medical & dental officers","Pharmacists & allied health","Veterinary officers","Environmental health officers","Local authorities & planners","Disaster management agencies","Academics & students","NGOs & community leaders","Industry & exhibitors","International partners"],
 "done":(n,id,amt,m)=>`<b>Thank you, ${n}.</b> Your draft registration ${id} for ${amt} is saved. In the live site you would now be taken to ${m} to complete payment.`,
@@ -809,11 +799,11 @@ ms:{"nav.sponsors":"Penaja","sp.eye":"Penajaan & pameran","sp.title":"Perkongsia
 "venue.eye":"Lokasi","venue.lede":"Kampus dengan arked putih, kubah keemasan dan halaman berpola bintang di Alor Setar, ibu negeri Kedah. AIU menyertai KIHC 2027 sebagai penganjur bersama dan tuan rumah.","tr.air":"Udara","tr.air.p":"Lapangan Terbang Sultan Abdul Halim (Alor Setar) untuk penerbangan domestik; Lapangan Terbang Antarabangsa Pulau Pinang untuk sambungan antarabangsa.","tr.rail":"Kereta api","tr.rail.p":"Perkhidmatan KTM ETS ke stesen Alor Setar.","tr.stay":"Penginapan","tr.stay.p":"Senarai hotel rakan dan kadar persidangan akan diterbitkan di sini.",
 "reg.eye":"Pendaftaran & yuran","reg.title":"Bersama kami di <em>Alor Setar</em>","reg.lede":"Terbuka kepada semua yang membentuk kesihatan komuniti, daripada klinisian dan doktor veterinar hingga perancang, penyelidik dan pemimpin komuniti.",
 "who.c":["Pakar perubatan kesihatan awam","Pegawai perubatan & pergigian","Ahli farmasi & kesihatan bersekutu","Pegawai veterinar","Pegawai kesihatan persekitaran","PBT & perancang bandar","Agensi pengurusan bencana","Ahli akademik & pelajar","NGO & pemimpin komuniti","Industri & pempamer","Rakan antarabangsa"],
-"fee.local":"Peserta Malaysia (RM)","fee.intl":"Peserta antarabangsa (USD)","fee.cat":"Kategori","fee.eb":"Awal","fee.norm":"Biasa","fee.onsite":"Di tapak","fee.inc":"Yuran merangkumi kit persidangan, minum pagi/petang dan makan tengah hari kedua-dua hari, sijil penyertaan dan mata CPD.","fee.note":"<b>Yuran ilustrasi.</b> Jumlah yang dipaparkan adalah contoh sementara menunggu kelulusan Bendahari dan Jawatankuasa Penganjur.",
+"fee.local":"Peserta Malaysia (RM)","fee.intl":"Peserta antarabangsa (USD)","fee.cat":"Kategori","fee.fee":"Yuran","fee.cond":"Syarat","cat.my":"Peserta Malaysia","cat.intl":"Peserta antarabangsa","cat.day":"Pendaftaran harian","cond.my":"Kadar awal atau standard akan disahkan selepas sebut harga tempat diterima","cond.intl":"Kadar tukaran dan kaedah pembayaran akan disahkan","cond.stu":"Kuota terhad dengan kad pelajar yang sah","cond.day":"Jika boleh dilaksanakan dan diluluskan","fee.eb":"Awal","fee.norm":"Biasa","fee.onsite":"Di tapak","fee.inc":"Yuran merangkumi kit persidangan, minum pagi/petang dan makan tengah hari kedua-dua hari, sijil penyertaan dan mata CPD.","fee.note":"<b>Yuran cadangan.</b> Kadar awal atau standard akan disahkan selepas sebut harga tempat diterima.",
 "cat.spec":"Pakar & pakar perunding","cat.spec.s":"Pakar perubatan, pergigian & kesihatan awam","cat.mo":"Pegawai perubatan, pergigian & veterinar","cat.mo.s":"Termasuk ahli farmasi & pegawai sains","cat.ah":"Kesihatan bersekutu & pegawai lain","cat.ah.s":"Jururawat, PPP, PKP, kakitangan PBT & agensi","cat.stu":"Pelajar","cat.stu.s":"Sepenuh masa, dengan kad pelajar sah",
 "pay.title":"Kaedah pembayaran","pay.local":"Malaysia","pay.fpx":"Bayaran segera dari akaun bank Malaysia. Resit dikeluarkan secara automatik.","pay.card.h":"Kad kredit / debit","pay.all":"Malaysia & antarabangsa","pay.card":"Visa dan Mastercard melalui gerbang pembayaran selamat. Pilihan terbaik untuk peserta luar negara.","pay.tt.h":"Pindahan bank (TT / SWIFT)","pay.intl":"Antarabangsa","pay.tt":"Pindahan ke akaun persatuan. Semua caj bank ditanggung peserta. Muat naik bukti pembayaran.","pay.lo.h":"Pesanan Tempatan (LO) Kerajaan","pay.gov":"Agensi Malaysia","pay.lo":"Untuk pegawai yang ditaja jabatan. Muat naik LO; invois akan dikeluarkan.","pay.lo.short":"LO Kerajaan",
 "how.title":"Cara mendaftar","how.1":"Isi maklumat anda","how.1p":"Nama, organisasi, kategori dan negara.","how.2":"Pilih kaedah pembayaran","how.2p":"FPX, kad, pindahan bank atau LO kerajaan.","how.3":"Terima pengesahan","how.3p":"Resit rasmi dan nombor pendaftaran melalui e-mel.","how.4":"Daftar masuk dengan kod QR","how.4p":"Ambil kit anda di lobi AIU pada Hari 1.",
-"f.name":"Nama penuh (seperti dalam sijil)","f.email":"E-mel","f.country":"Negara","f.other":"Lain-lain","f.org":"Organisasi","f.cat":"Kategori","f.pay":"Kaedah pembayaran","f.total":"Jumlah perlu dibayar (awal)","f.submit":"Teruskan ke pembayaran","f.demo":"DEMO · TIADA DATA DIHANTAR",
+"f.name":"Nama penuh (seperti dalam sijil)","f.email":"E-mel","f.country":"Negara","f.other":"Lain-lain","f.org":"Organisasi","f.cat":"Kategori","f.pay":"Kaedah pembayaran","f.total":"Jumlah perlu dibayar","f.submit":"Teruskan ke pembayaran","f.demo":"DEMO · TIADA DATA DIHANTAR",
 "faq.eye":"Soalan lazim","faq.title":"Perlu <em>diketahui</em>","q1":"Bolehkah saya mendapatkan surat jemputan untuk visa?","a1":"Boleh. Peserta antarabangsa boleh memohon surat jemputan rasmi selepas mendaftar. Peruntukkan sekurang-kurangnya empat minggu untuk proses visa.","q2":"Adakah saya akan menerima resit rasmi?","a2":"Setiap bayaran akan menerima resit rasmi melalui e-mel, sesuai untuk tuntutan majikan.","q3":"Apakah polisi pembatalan?","a3":"Polisi bayaran balik akan diterbitkan bersama portal pendaftaran. Penggantian peserta lazimnya dibenarkan.","q4":"Perlukah saya mendaftar untuk membentangkan abstrak?","a4":"Ya. Sekurang-kurangnya seorang penulis bagi setiap abstrak yang diterima wajib mendaftar sebelum tarikh akhir pendaftaran awal.",
 "ct.eye":"Hubungi sekretariat","ct.title":"Kami menanti <em>kehadiran</em> anda","ct.lede":"Ada soalan tentang pendaftaran, pembayaran atau atur cara? Hubungi sekretariat KIHC 2027.","ct.email":"E-mel","ct.phone":"Telefon","ct.addr":"Sekretariat","ct.tbc":"Akan diumumkan",
 "foot":"© 2027 Persatuan Pakar Perubatan Kesihatan Awam Negeri Kedah · Dianjurkan bersama Universiti Antarabangsa Albukhary",
@@ -840,24 +830,23 @@ function applyLang(l){
 }
 function money(c,v){return c==="RM"?`RM ${v}`:`USD ${v}`}
 function renderFees(){
-  const F=FEES[cur];
-  document.getElementById("fee-body").innerHTML=F.rows.map(r=>`<tr><td><b>${esc(t(r[0]))}</b><small>${esc(t(r[1]))}</small></td><td class="num eb">${money(F.cur,r[2])}</td><td class="num">${money(F.cur,r[3])}</td><td class="num">${money(F.cur,r[4])}</td></tr>`).join("");
+  document.getElementById("fee-body").innerHTML=FEES.map(r=>`<tr><td><b>${esc(t(r[0]))}</b></td><td class="num eb">${money(r[2],r[3])}</td><td><small>${esc(t(r[1]))}</small></td></tr>`).join("");
 }
 function fillCats(){
   const s=document.getElementById("f-cat"), keep=s.selectedIndex<0?0:s.selectedIndex;
-  s.innerHTML=FEES.local.rows.map((r,i)=>`<option value="${i}">${esc(t(r[0]))}</option>`).join("");
+  s.innerHTML=FEES.map((r,i)=>`<option value="${i}">${esc(t(r[0]))}</option>`).join("");
   s.selectedIndex=keep;
 }
-function total(){
-  const intl=document.getElementById("f-country").value!=="MY";
-  const F=FEES[intl?"intl":"local"], i=+document.getElementById("f-cat").value||0;
-  document.getElementById("f-total").textContent=money(F.cur,F.rows[i][2]);
+function total(e){
+  const c=document.getElementById("f-country"), cat=document.getElementById("f-cat");
+  if(e&&e.target===c){ if(c.value!=="MY") cat.value="1"; else if(cat.value==="1") cat.value="0"; }
+  const r=FEES[+cat.value||0], intl=r[4]===1;
+  document.getElementById("f-total").textContent=money(r[2],r[3]);
   document.getElementById("p-fpx").disabled=intl; document.getElementById("p-lo").disabled=intl;
   if(intl&&(document.getElementById("p-fpx").checked||document.getElementById("p-lo").checked)) document.getElementById("p-card").checked=true;
   document.querySelectorAll(".radios label").forEach(l=>{l.style.opacity=l.querySelector("input").disabled?.45:1});
 }
 document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
-document.querySelectorAll(".seg button").forEach(b=>b.addEventListener("click",()=>{cur=b.dataset.cur;document.querySelectorAll(".seg button").forEach(x=>x.setAttribute("aria-pressed",x===b));renderFees()}));
 ["f-country","f-cat"].forEach(id=>document.getElementById(id).addEventListener("change",total));
 document.getElementById("reg-form").addEventListener("submit",e=>{
   e.preventDefault();

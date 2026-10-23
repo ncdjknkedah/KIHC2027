@@ -63,7 +63,7 @@ p{margin:0}
 .brand b{font-family:var(--f-title);font-weight:400;font-size:1.25rem;letter-spacing:.06em}
 .brand span{font-family:var(--f-mono);font-size:.7rem;color:var(--ink-soft);letter-spacing:.1em;display:block;line-height:1}
 .nav{display:flex;gap:4px;margin-left:auto;flex-wrap:nowrap}
-.nav a{text-decoration:none;font-size:.92rem;font-weight:500;padding:8px 11px;border-radius:8px;color:var(--ink-soft)}
+.nav a{text-decoration:none;font-size:.9rem;font-weight:500;padding:8px 9px;white-space:nowrap;border-radius:8px;color:var(--ink-soft)}
 .nav a:hover{color:var(--ink);background:var(--sky)}
 .lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;flex:none}
 .lang button{border:0;background:none;font:600 .78rem var(--f-mono);letter-spacing:.06em;padding:6px 11px;border-radius:999px;cursor:pointer;color:var(--ink-soft)}
@@ -73,9 +73,9 @@ p{margin:0}
 .btn.gold{background:var(--gold);color:#fff}
 .btn.ghost{border-color:currentColor;background:transparent}
 .btn.dark{background:var(--ink);color:var(--bg)}
-.top .btn{padding:9px 16px;font-size:.88rem}
+.top .btn{padding:9px 16px;font-size:.88rem;white-space:nowrap}
 .menu-btn{display:none;border:1px solid var(--line);background:none;border-radius:8px;padding:8px 10px;cursor:pointer;color:var(--ink)}
-@media (max-width:1060px){
+@media (max-width:1260px){
   .nav{display:none;position:absolute;top:76px;left:0;right:0;background:var(--surface);flex-direction:column;padding:10px max(20px,env(safe-area-inset-right,0px)) 18px max(20px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--line)}
   .nav.open{display:flex}
   .menu-btn{display:block;margin-left:auto}
@@ -175,12 +175,21 @@ p{margin:0}
 .tabs button[aria-selected="true"]{color:var(--ink);border-color:var(--gold)}
 .tabs button small{display:block;font:400 .74rem var(--f-mono);letter-spacing:.06em;color:var(--gold)}
 .sched{list-style:none;padding:0;margin:0}
-.sched li{display:grid;grid-template-columns:110px 1fr auto;gap:20px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.sched li{display:grid;grid-template-columns:130px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline}
 .sched time{font-family:var(--f-mono);font-size:.9rem;color:var(--ink-soft);font-variant-numeric:tabular-nums}
 .sched h3{font-family:var(--f-display);font-weight:600;font-size:1.35rem;line-height:1.25}
 .sched p{font-size:.92rem;color:var(--ink-soft)}
 .sched .where{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.06em;color:var(--teal);white-space:nowrap}
 .sched li.key h3{color:var(--teal)}
+.sched li.brk h3{font-family:var(--f-body);font-weight:500;font-size:1rem;color:var(--ink-soft)}
+.sched li.brk{padding:12px 0}
+.par{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.par-c{border:1px solid var(--line);border-top:3px solid var(--pc);border-radius:10px;padding:12px 14px;background:var(--bg);min-width:0}
+.par-c.planet{--pc:#3f8f5a}.par-c.people{--pc:var(--gold)}.par-c.partnership{--pc:#2f6f9f}
+.par-tag{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--pc)}
+.par-c b{display:block;font-size:.95rem;margin-top:4px}
+.par-c p{font-size:.86rem;color:var(--ink-soft);margin-top:2px}
+@media (max-width:760px){.par{grid-template-columns:1fr}}
 @media (max-width:640px){.sched li{grid-template-columns:1fr;gap:4px}.sched .where{white-space:normal}}
 
 /* highlights + gallery */
@@ -301,6 +310,46 @@ footer .brand span{color:#9fb5b0}
 .foot-logos .aiu{height:62px;width:auto}
 .foot-logos .sep{width:1px;height:44px;background:rgba(255,255,255,.2)}
 @media (max-width:520px){.hero-orgs .sep{display:none}.hero-orgs .badge{height:54px}.hero-orgs .aiu{height:58px}}
+/* sponsorship */
+.sp-top{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(28px,5vw,64px);align-items:end}
+.sp-top > *{min-width:0}
+.sp-record{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;align-items:center;border-left:2px solid var(--gold);padding-left:20px}
+.sp-record b{font-family:var(--f-display);font-weight:600;font-size:clamp(3rem,6vw,4.4rem);line-height:1;color:var(--teal);grid-row:span 2}
+.sp-record span{font-size:.95rem}
+.sp-record small{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;color:var(--ink-soft)}
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px;padding-top:28px;border-top:1px solid var(--line)}
+.why h3{font-family:var(--f-body);font-weight:700;font-size:1rem}
+.why p{font-size:.9rem;color:var(--ink-soft);margin-top:6px}
+.why .k{font-family:var(--f-mono);font-size:.72rem;color:var(--gold);letter-spacing:.1em}
+@media (max-width:860px){.why{grid-template-columns:1fr 1fr}.sp-top{grid-template-columns:1fr}}
+@media (max-width:520px){.why{grid-template-columns:1fr}}
+.tiers{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:44px}
+.tier{grid-column:span 2;background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.tier.big{grid-column:span 3}
+.tier.diamond{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tier.diamond .sub,.tier.diamond li{color:color-mix(in srgb,var(--bg) 78%,transparent)}
+.tier-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.metal{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase}
+.metal i{width:14px;height:14px;transform:rotate(45deg);border-radius:2px;background:var(--m)}
+.tier h3{font-family:var(--f-display);font-weight:600;font-size:1.5rem;line-height:1.15}
+.tier .price{font-family:var(--f-display);font-weight:600;font-size:1.9rem;line-height:1;white-space:nowrap;font-variant-numeric:lining-nums}
+.tier .sub{font-size:.88rem;color:var(--ink-soft)}
+.tier ul{margin:4px 0 0;padding-left:18px;font-size:.9rem;display:grid;gap:6px}
+@media (max-width:900px){.tiers{grid-template-columns:1fr 1fr}.tier,.tier.big{grid-column:span 1}.tier.diamond{grid-column:span 2}}
+@media (max-width:560px){.tiers{grid-template-columns:1fr}.tier.diamond{grid-column:span 1}}
+.extras{display:grid;grid-template-columns:1.3fr .7fr;gap:16px;margin-top:16px}
+.extra{border:1px dashed var(--gold);border-radius:var(--r);padding:22px 24px;min-width:0;background:var(--gold-soft)}
+.extra .price{font-family:var(--f-display);font-weight:600;font-size:1.6rem;color:var(--ink)}
+.extra h3{font-family:var(--f-display);font-weight:600;font-size:1.35rem}
+.extra ul{margin:10px 0 0;padding-left:18px;font-size:.9rem;display:grid;gap:4px;color:var(--ink-soft)}
+.extra p{font-size:.9rem;color:var(--ink-soft);margin-top:8px}
+@media (max-width:760px){.extras{grid-template-columns:1fr}}
+.principles{list-style:none;padding:0;margin:40px 0 0;display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.principles li{font-size:.88rem;color:var(--ink-soft);min-width:0}
+.principles b{display:block;color:var(--ink);font-size:.95rem;margin-bottom:4px}
+@media (max-width:900px){.principles{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.principles{grid-template-columns:1fr}}
+.sp-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:36px}
 .star-rule{display:flex;align-items:center;gap:14px;color:var(--gold);margin-top:22px}
 .star-rule::before,.star-rule::after{content:"";height:1px;flex:1;background:var(--line)}
 .star-rule svg{width:16px;height:16px}
@@ -343,6 +392,7 @@ footer .brand span{color:#9fb5b0}
       <a href="#highlights" data-i18n="nav.highlights">Highlights</a>
       <a href="#venue" data-i18n="nav.venue">Venue</a>
       <a href="#register" data-i18n="nav.register">Registration</a>
+      <a href="#sponsors" data-i18n="nav.sponsors">Sponsors</a>
       <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
     <div class="lang" role="group" aria-label="Language">
@@ -382,7 +432,7 @@ footer .brand span{color:#9fb5b0}
       <div><b id="cd-m">—</b><span data-i18n="cd.mins">Minutes</span></div>
       <div><b id="cd-s">—</b><span data-i18n="cd.secs">Seconds</span></div>
     </div>
-    <p class="count-cap" data-i18n="cd.cap">Until the opening session · 11 August 2027, 8.30 am (MYT)</p>
+    <p class="count-cap" data-i18n="cd.cap">Until the opening session · 11 August 2027, 8.45 am (MYT)</p>
   </div>
 </section>
 
@@ -401,7 +451,7 @@ footer .brand span{color:#9fb5b0}
         <h2 class="sec-title" data-i18n-html="about.title">One Health for a <em>resilient</em> Kedah, and beyond</h2>
         <p class="lede" data-i18n="about.lede">Health risks now move between people, animals and the environment. KIHC 2027 brings every sector that shapes them into one room.</p>
         <p style="margin-top:22px" data-i18n="about.p1">Climate change, extreme heat, pollution, zoonotic diseases, antimicrobial resistance, disasters and the growing burden of non-communicable diseases cannot be solved by the health sector alone. Kedah's mix of urban centres, rice-growing land, coastal and island communities and an international border makes it a natural testing ground for practical, cross-sector solutions.</p>
-        <p data-i18n="about.p2">Building on the first KIHC, this second edition widens the lens from community engagement to One Health, planetary health, sustainability and resilience. Over two days, policymakers, practitioners, researchers, local authorities, industry and communities will share evidence and leave with commitments they can act on.</p>
+        <p data-i18n="about.p2">Building on the inaugural KIHC 2025, this second edition widens the lens from community engagement to One Health, planetary health, sustainability and resilience. Over two days, policymakers, practitioners, researchers, local authorities, industry and communities will share evidence and leave with commitments they can act on.</p>
         <ul class="objectives">
           <li><b>1</b><span data-i18n="obj.1">Strengthen inter-agency collaboration in applying the One Health approach.</span></li>
           <li><b>2</b><span data-i18n="obj.2">Share knowledge and innovation on communicable and non-communicable diseases, AMR, climate change and environmental health.</span></li>
@@ -417,7 +467,7 @@ footer .brand span{color:#9fb5b0}
     <div class="stats">
       <div class="stat"><b>2</b><span data-i18n="stat.1">conference days</span></div>
       <div class="stat"><b>5</b><span data-i18n="stat.2">scientific tracks</span></div>
-      <div class="stat"><b>300+</b><span data-i18n="stat.3">expected participants</span></div>
+      <div class="stat"><b>400–500</b><span data-i18n="stat.3">target delegates</span></div>
       <div class="stat"><b>1</b><span data-i18n="stat.4">Kedah declaration of shared commitments</span></div>
     </div>
   </div>
@@ -470,25 +520,29 @@ footer .brand span{color:#9fb5b0}
       <button type="button" role="tab" id="tab-d2" aria-selected="false" aria-controls="day2"><span data-i18n="prog.d2">Day 2</span><small>THU · 12 AUG</small></button>
     </div>
     <ol class="sched" id="day1" role="tabpanel" aria-labelledby="tab-d1">
-      <li><time>7.30 am</time><div><h3 data-i18n="s.reg">Registration &amp; welcome coffee</h3></div><span class="where" data-i18n="w.foyer">Main foyer</span></li>
-      <li class="key"><time>8.30 am</time><div><h3 data-i18n="s.open">Opening ceremony</h3><p data-i18n="s.open.p">Officiated by the Kedah State Government</p></div><span class="where" data-i18n="w.dewan">Dewan Konvokesyen</span></li>
-      <li class="key"><time>9.30 am</time><div><h3 data-i18n="s.key">Keynote address</h3><p data-i18n="s.key.p">Speaker to be announced</p></div><span class="where" data-i18n="w.dewan">Dewan Konvokesyen</span></li>
-      <li><time>10.30 am</time><div><h3 data-i18n="s.break">Coffee break &amp; poster exhibition</h3></div><span class="where" data-i18n="w.expo">Exhibition area</span></li>
-      <li><time>11.00 am</time><div><h3 data-i18n="s.plen1">Plenary 1 · One Health in practice</h3></div><span class="where" data-i18n="w.dewan">Dewan Konvokesyen</span></li>
-      <li><time>1.00 pm</time><div><h3 data-i18n="s.lunch">Lunch &amp; prayers</h3></div><span class="where">—</span></li>
-      <li><time>2.30 pm</time><div><h3 data-i18n="s.sym">Concurrent symposia · Tracks 1–3</h3><p data-i18n="s.sym.p">Oral presentations in parallel halls</p></div><span class="where" data-i18n="w.halls">Halls 1–3</span></li>
-      <li><time>5.00 pm</time><div><h3 data-i18n="s.end1">End of Day 1</h3></div><span class="where">—</span></li>
+      <li class=""><time>08:00–08:45</time><div><h3 data-i18n="p.reg">Registration &amp; morning refreshments</h3></div></li>
+      <li class="key"><time>08:45–09:30</time><div><h3 data-i18n="p.open">Opening ceremony</h3></div></li>
+      <li class="key"><time>09:30–10:15</time><div><h3 data-i18n="p.key">Opening keynote address</h3></div></li>
+      <li class="brk"><time>10:15–10:30</time><div><h3 data-i18n="p.tea">Tea / coffee break</h3></div></li>
+      <li class="par-row"><time>10:30–11:45</time><div><h3 data-i18n="p.sym13">Parallel symposia 1–3</h3><div class="par"><div class="par-c planet"><span class="par-tag" data-i18n="pt.planet">Planet</span><b data-i18n="sy.1">Symposium 1</b><p data-i18n="sy.1.d">Planetary Health and Sustainable Health Systems</p></div><div class="par-c people"><span class="par-tag" data-i18n="pt.people">People</span><b data-i18n="sy.2">Symposium 2</b><p data-i18n="sy.2.d">Health Equity, Community Health and Human Wellbeing</p></div><div class="par-c partnership"><span class="par-tag" data-i18n="pt.partnership">Partnership</span><b data-i18n="sy.3">Symposium 3</b><p data-i18n="sy.3.d">Collaborative Leadership and Transformative Health Systems</p></div></div></div></li>
+      <li class="par-row"><time>11:45–13:00</time><div><h3 data-i18n="p.sym46">Parallel symposia 4–6</h3><div class="par"><div class="par-c planet"><span class="par-tag" data-i18n="pt.planet">Planet</span><b data-i18n="sy.4">Symposium 4</b><p data-i18n="sy.4.d">Further topics within planetary health</p></div><div class="par-c people"><span class="par-tag" data-i18n="pt.people">People</span><b data-i18n="sy.5">Symposium 5</b><p data-i18n="sy.5.d">Further topics within community and population health</p></div><div class="par-c partnership"><span class="par-tag" data-i18n="pt.partnership">Partnership</span><b data-i18n="sy.6">Symposium 6</b><p data-i18n="sy.6.d">Further topics within collaborative health systems</p></div></div></div></li>
+      <li class="brk"><time>13:00–14:00</time><div><h3 data-i18n="p.lunch">Networking lunch</h3></div></li>
+      <li class="par-row"><time>14:00–15:30</time><div><h3 data-i18n="p.rt">Research theme presentations</h3><div class="par"><div class="par-c planet"><span class="par-tag" data-i18n="pt.planet">Planet</span><b data-i18n="rt.1">Research Theme 1</b><p data-i18n="rt.1.d">Climate, One Health, environmental health and sustainability</p></div><div class="par-c people"><span class="par-tag" data-i18n="pt.people">People</span><b data-i18n="rt.2">Research Theme 2</b><p data-i18n="rt.2.d">Population health, equity, disease prevention and health services</p></div><div class="par-c partnership"><span class="par-tag" data-i18n="pt.partnership">Partnership</span><b data-i18n="rt.3">Research Theme 3</b><p data-i18n="rt.3.d">Health systems, implementation science, policy and collaboration</p></div></div></div></li>
+      <li class="brk"><time>15:30–15:45</time><div><h3 data-i18n="p.tea">Tea / coffee break</h3></div></li>
+      <li class="par-row"><time>15:45–16:45</time><div><h3 data-i18n="p.rt2">Research theme presentations (continued)</h3><div class="par"><div class="par-c planet"><span class="par-tag" data-i18n="pt.planet">Planet</span><b data-i18n="rt.1">Research Theme 1</b><p data-i18n="rt.1.d">Climate, One Health, environmental health and sustainability</p></div><div class="par-c people"><span class="par-tag" data-i18n="pt.people">People</span><b data-i18n="rt.2">Research Theme 2</b><p data-i18n="rt.2.d">Population health, equity, disease prevention and health services</p></div><div class="par-c partnership"><span class="par-tag" data-i18n="pt.partnership">Partnership</span><b data-i18n="rt.3">Research Theme 3</b><p data-i18n="rt.3.d">Health systems, implementation science, policy and collaboration</p></div></div></div></li>
+      <li class=""><time>16:45–17:00</time><div><h3 data-i18n="p.wrap">Day 1 wrap-up &amp; announcements</h3></div></li>
     </ol>
     <ol class="sched" id="day2" role="tabpanel" aria-labelledby="tab-d2" hidden>
-      <li><time>8.00 am</time><div><h3 data-i18n="s.plen2">Plenary 2 · Climate and planetary health</h3></div><span class="where" data-i18n="w.dewan">Dewan Konvokesyen</span></li>
-      <li><time>9.30 am</time><div><h3 data-i18n="s.break">Coffee break &amp; poster exhibition</h3></div><span class="where" data-i18n="w.expo">Exhibition area</span></li>
-      <li><time>10.00 am</time><div><h3 data-i18n="s.sym2">Concurrent symposia · Tracks 4–5</h3><p data-i18n="s.sym.p">Oral presentations in parallel halls</p></div><span class="where" data-i18n="w.halls">Halls 1–3</span></li>
-      <li><time>12.00 pm</time><div><h3 data-i18n="s.panel">Cross-sector panel discussion</h3><p data-i18n="s.panel.p">Health, veterinary, environment, local authorities and planners</p></div><span class="where" data-i18n="w.dewan">Dewan Konvokesyen</span></li>
-      <li><time>1.00 pm</time><div><h3 data-i18n="s.lunch">Lunch &amp; prayers</h3></div><span class="where">—</span></li>
-      <li class="key"><time>2.30 pm</time><div><h3 data-i18n="s.decl">Kedah Declaration &amp; sector commitments</h3><p data-i18n="s.decl.p">Rapporteurs' summary and signing</p></div><span class="where" data-i18n="w.dewan">Dewan Konvokesyen</span></li>
-      <li><time>4.00 pm</time><div><h3 data-i18n="s.close">Awards &amp; closing ceremony</h3><p data-i18n="s.close.p">Best oral and poster presentations</p></div><span class="where" data-i18n="w.dewan">Dewan Konvokesyen</span></li>
+      <li class=""><time>08:00–08:30</time><div><h3 data-i18n="p.reg">Registration &amp; morning refreshments</h3></div></li>
+      <li class="par-row"><time>08:30–10:00</time><div><h3 data-i18n="p.sym13">Parallel symposia 1–3</h3><div class="par"><div class="par-c planet"><span class="par-tag" data-i18n="pt.planet">Planet</span><b data-i18n="sy.1">Symposium 1</b><p data-i18n="sy.1.d">Planetary Health and Sustainable Health Systems</p></div><div class="par-c people"><span class="par-tag" data-i18n="pt.people">People</span><b data-i18n="sy.2">Symposium 2</b><p data-i18n="sy.2.d">Health Equity, Community Health and Human Wellbeing</p></div><div class="par-c partnership"><span class="par-tag" data-i18n="pt.partnership">Partnership</span><b data-i18n="sy.3">Symposium 3</b><p data-i18n="sy.3.d">Collaborative Leadership and Transformative Health Systems</p></div></div></div></li>
+      <li class="brk"><time>10:00–10:30</time><div><h3 data-i18n="p.tea">Tea / coffee break</h3></div></li>
+      <li class="par-row"><time>10:30–13:00</time><div><h3 data-i18n="p.rt">Research theme presentations</h3><div class="par"><div class="par-c planet"><span class="par-tag" data-i18n="pt.planet">Planet</span><b data-i18n="rt.1">Research Theme 1</b><p data-i18n="rt.1.d">Climate, One Health, environmental health and sustainability</p></div><div class="par-c people"><span class="par-tag" data-i18n="pt.people">People</span><b data-i18n="rt.2">Research Theme 2</b><p data-i18n="rt.2.d">Population health, equity, disease prevention and health services</p></div><div class="par-c partnership"><span class="par-tag" data-i18n="pt.partnership">Partnership</span><b data-i18n="rt.3">Research Theme 3</b><p data-i18n="rt.3.d">Health systems, implementation science, policy and collaboration</p></div></div></div></li>
+      <li class="brk"><time>13:00–14:00</time><div><h3 data-i18n="p.lunch">Networking lunch</h3></div></li>
+      <li class="key"><time>14:00–15:30</time><div><h3 data-i18n="p.kd">Keynote speakers &amp; discussion</h3></div></li>
+      <li class="brk"><time>15:30–15:45</time><div><h3 data-i18n="p.coffee">Coffee break</h3></div></li>
+      <li class="key"><time>15:45–16:30</time><div><h3 data-i18n="p.close">Closing ceremony</h3></div></li>
     </ol>
-    <p class="note"><svg width="18" height="18" style="flex:none;color:var(--gold);margin-top:3px"><use href="#star"/></svg><span data-i18n-html="prog.note"><b>Draft outline.</b> The full programme with speakers will be published by the Scientific Committee.</span></p>
+    <p class="note"><svg width="18" height="18" style="flex:none;color:var(--gold);margin-top:3px"><use href="#star"/></svg><span data-i18n-html="prog.note"><b>Tentative programme.</b> Subject to approval by the KIHC 2027 Scientific Committee. Speakers will be announced.</span></p>
   </div>
 </section>
 
@@ -597,7 +651,53 @@ footer .brand span{color:#9fb5b0}
   </div>
 </section>
 
-<section class="band alt" id="faq">
+<section class="band alt" id="sponsors">
+  <div class="wrap">
+    <p class="eyebrow"><svg><use href="#star"/></svg><span data-i18n="sp.eye">Sponsorship &amp; exhibition</span></p>
+    <div class="sp-top">
+      <div>
+        <h2 class="sec-title" data-i18n-html="sp.title">Your partnership. <em>Our shared vision.</em></h2>
+        <p class="lede" data-i18n="sp.lede">Join KIHC 2027 as a corporate partner and connect with 400–500 national and international delegates over two days of dialogue on sustainable change in health and society.</p>
+      </div>
+      <div class="sp-record">
+        <b>13</b><span data-i18n="sp.rec">corporate sponsors supported the inaugural KIHC 2025</span>
+        <small data-i18n="sp.rec2">1 Platinum · 1 Gold · 2 Silver · 9 Bronze</small>
+      </div>
+    </div>
+    <div class="why">
+      <div><span class="k">01</span><h3 data-i18n="why.1">Relevant professional audience</h3><p data-i18n="why.1p">Clinicians, public health practitioners, academics, researchers, students, policymakers and industry.</p></div>
+      <div><span class="k">02</span><h3 data-i18n="why.2">Credible brand presence</h3><p data-i18n="why.2p">Visibility across approved conference channels, exhibition and on-site touchpoints.</p></div>
+      <div><span class="k">03</span><h3 data-i18n="why.3">Meaningful conversations</h3><p data-i18n="why.3p">Meet the people shaping health programmes and research in Malaysia and the region.</p></div>
+      <div><span class="k">04</span><h3 data-i18n="why.4">Alignment with sustainability</h3><p data-i18n="why.4p">Support dialogue on healthier communities, planetary wellbeing and lasting partnerships.</p></div>
+    </div>
+    <div class="tiers" id="tiers"></div>
+    <div class="extras">
+      <div class="extra">
+        <div class="tier-head"><h3 data-i18n="lunch.h">Industry-Sponsored Lunch Symposium &amp; Networking Lunch</h3><span class="price">RM25,000</span></div>
+        <ul data-list="lunch.l"></ul>
+        <p data-i18n="lunch.n">Two sessions available across the two days. Topics, speakers and materials are reviewed by the Scientific Committee.</p>
+      </div>
+      <div class="extra">
+        <div class="tier-head"><h3 data-i18n="exh.h">Exhibition booth only</h3><span class="price">RM4,000</span></div>
+        <p data-i18n="exh.p">A standard two-day booth for organisations that wish to exhibit without a sponsorship package. Every sponsorship tier already includes a booth.</p>
+      </div>
+    </div>
+    <ul class="principles">
+      <li><b data-i18n="pr.1">Scientific independence</b><span data-i18n="pr.1p">Sponsors do not determine programme content, speakers or conclusions.</span></li>
+      <li><b data-i18n="pr.2">Transparent recognition</b><span data-i18n="pr.2p">Sponsored symposia and materials are clearly identified.</span></li>
+      <li><b data-i18n="pr.3">Appropriate engagement</b><span data-i18n="pr.3p">All products and claims comply with Malaysian laws and sector codes.</span></li>
+      <li><b data-i18n="pr.4">Privacy &amp; consent</b><span data-i18n="pr.4p">Delegate data is never shared without a valid basis and consent.</span></li>
+      <li><b data-i18n="pr.5">Written confirmation</b><span data-i18n="pr.5p">Booths, catering, media, AV and exclusivity are confirmed in writing.</span></li>
+    </ul>
+    <div class="sp-cta">
+      <a class="btn gold" href="KIHC2027%20SPONSORSHIP%20PROSPECTUS.pdf" target="_blank" rel="noopener" data-i18n="sp.dl">View sponsorship prospectus (PDF)</a>
+      <a class="btn ghost" href="#contact" data-i18n="sp.eoi">Express interest</a>
+    </div>
+    <p class="note"><svg width="18" height="18" style="flex:none;color:var(--gold);margin-top:3px"><use href="#star"/></svg><span data-i18n-html="sp.note"><b>Subject to confirmation.</b> All packages and privileges remain subject to organiser approval, the scientific programme, venue arrangements and a signed confirmation.</span></p>
+  </div>
+</section>
+
+<section class="band" id="faq">
   <div class="wrap">
     <p class="eyebrow"><svg><use href="#star"/></svg><span data-i18n="faq.eye">Frequently asked</span></p>
     <h2 class="sec-title" data-i18n-html="faq.title">Good to <em>know</em></h2>
@@ -610,7 +710,7 @@ footer .brand span{color:#9fb5b0}
   </div>
 </section>
 
-<section class="band" id="contact">
+<section class="band alt" id="contact">
   <div class="wrap contact">
     <div>
       <p class="eyebrow"><svg><use href="#star"/></svg><span data-i18n="ct.eye">Contact the secretariat</span></p>
@@ -653,21 +753,46 @@ const FEES={
     ["cat.ah","cat.ah.s",140,170,200],
     ["cat.stu","cat.stu.s",70,90,110]]}
 };
+const TIERS=[
+ {k:"diamond",m:"linear-gradient(135deg,#e9f3f7,#9fc7d6)",price:"RM35,000",big:1,
+  en:["Diamond","Presenting Partner","Flagship visibility & premium positioning",["Premium two-day exhibition booth in a priority location","Six conference passes and premium logo placement","Full-page e-programme advert and two dedicated social posts","60-second corporate video during breaks; opening/closing acknowledgement"]],
+  ms:["Diamond","Rakan Utama Penaja","Keterlihatan utama & kedudukan premium",["Reruai pameran premium dua hari di lokasi keutamaan","Enam pas persidangan dan logo premium","Iklan satu muka dalam e-program dan dua hantaran media sosial khas","Video korporat 60 saat semasa rehat; penghargaan majlis perasmian/penutup"]]},
+ {k:"platinum",m:"linear-gradient(135deg,#f2f2f0,#b9bcbf)",price:"RM25,000",big:1,
+  en:["Platinum","Principal Partner","Prominent corporate presence",["Standard two-day exhibition booth in a preferred location","Four conference passes and prominent branding","Full-page e-programme advert and one dedicated social post","30-second corporate video during breaks; session acknowledgement"]],
+  ms:["Platinum","Rakan Prinsipal","Kehadiran korporat yang menonjol",["Reruai pameran standard dua hari di lokasi pilihan","Empat pas persidangan dan penjenamaan menonjol","Iklan satu muka dalam e-program dan satu hantaran media sosial khas","Video korporat 30 saat semasa rehat; penghargaan sesi"]]},
+ {k:"gold",m:"linear-gradient(135deg,#f6dc8a,#b8892b)",price:"RM15,000",
+  en:["Gold","Major Partner","Professional engagement and brand recognition",["Standard two-day booth and three conference passes","Logo on approved conference and digital materials","Half-page e-programme advert and one appreciation post","Digital delegate-kit insert and event acknowledgement"]],
+  ms:["Gold","Rakan Utama","Penglibatan profesional dan pengiktirafan jenama",["Reruai standard dua hari dan tiga pas persidangan","Logo pada bahan persidangan dan digital yang diluluskan","Iklan separuh muka dalam e-program dan satu hantaran penghargaan","Sisipan kit delegasi digital dan penghargaan majlis"]]},
+ {k:"silver",m:"linear-gradient(135deg,#eef0f2,#9aa3ab)",price:"RM8,000",
+  en:["Silver","Supporting Partner","Accessible visibility with real engagement",["Standard two-day exhibition booth","Two conference passes","Logo listing in the digital programme","Shared social-media appreciation and onsite acknowledgement"]],
+  ms:["Silver","Rakan Sokongan","Keterlihatan mampu milik dengan penglibatan sebenar",["Reruai pameran standard dua hari","Dua pas persidangan","Senarai logo dalam program digital","Penghargaan media sosial bersama dan di tapak"]]},
+ {k:"bronze",m:"linear-gradient(135deg,#e7b98d,#9a5f33)",price:"RM5,000",
+  en:["Bronze","Community Partner","An accessible way to become part of KIHC",["Standard two-day exhibition booth","One conference pass","Logo in the digital programme and sponsor materials","Group sponsor appreciation and onsite acknowledgement"]],
+  ms:["Bronze","Rakan Komuniti","Cara mudah untuk menjadi sebahagian KIHC",["Reruai pameran standard dua hari","Satu pas persidangan","Logo dalam program digital dan bahan penaja","Penghargaan penaja berkumpulan dan di tapak"]]}
+];
+function renderTiers(){
+  document.getElementById("tiers").innerHTML=TIERS.map(x=>{const d=x[lang]||x.en;return `<article class="tier ${x.k}${x.big?" big":""}" style="--m:${x.m}"><div class="tier-head"><span class="metal"><i></i>${esc(d[0])}</span><span class="price">${x.price}</span></div><h3>${esc(d[1])}</h3><p class="sub">${esc(d[2])}</p><ul>${d[3].map(b=>`<li>${esc(b)}</li>`).join("")}</ul></article>`}).join("");
+}
 const T={
-en:{"cat.spec":"Specialists & consultants","cat.spec.s":"Medical, dental & public health specialists","cat.mo":"Medical, dental & veterinary officers","cat.mo.s":"Including pharmacists & scientific officers","cat.ah":"Allied health & other officers","cat.ah.s":"Nurses, AMOs, EHOs, local authority & agency staff","cat.stu":"Students","cat.stu.s":"Full-time, with valid student ID",
+en:{"lunch.l":["One dedicated 45–60-minute educational lunch symposium","Delegates' lunch under an agreed catering allocation","Acknowledgement in the programme, on-screen branding and approved digital promotion","One standard booth and three delegate passes","Session attendance summary, where data is available"],"cat.spec":"Specialists & consultants","cat.spec.s":"Medical, dental & public health specialists","cat.mo":"Medical, dental & veterinary officers","cat.mo.s":"Including pharmacists & scientific officers","cat.ah":"Allied health & other officers","cat.ah.s":"Nurses, AMOs, EHOs, local authority & agency staff","cat.stu":"Students","cat.stu.s":"Full-time, with valid student ID",
 "t1.c":["Healthy Cities","Urban Health","Built Environment","Community Empowerment"],"t2.c":["Climate Change","Heat & Air Pollution","Water & Sanitation","Waste Management","Environmental Health"],"t3.c":["NCD","Mental Health","Healthy Ageing","Nutrition","Maternal & Child Health","Adolescent, Women's & Men's Health"],"t4.c":["Infectious Diseases","Zoonoses","Vector-borne Diseases","AMR","Disaster Risk Management","Emergency Preparedness"],"t5.c":["AI","Digital Health","Surveillance","Research","Smart Cities","Precision Public Health"],
 "who.c":["Public health specialists","Medical & dental officers","Pharmacists & allied health","Veterinary officers","Environmental health officers","Local authorities & planners","Disaster management agencies","Academics & students","NGOs & community leaders","Industry & exhibitors","International partners"],
 "done":(n,id,amt,m)=>`<b>Thank you, ${n}.</b> Your draft registration ${id} for ${amt} is saved. In the live site you would now be taken to ${m} to complete payment.`,
 "m.fpx":"the FPX bank page","m.card":"the secure card payment page","m.tt":"our bank details and the proof-of-payment upload","m.lo":"the Local Order upload page","err":"Please enter your name and a valid email address."},
-ms:{"nav.about":"Tentang","nav.tracks":"Trek","nav.dates":"Tarikh Penting","nav.programme":"Atur Cara","nav.highlights":"Sorotan","nav.venue":"Lokasi","nav.register":"Pendaftaran","nav.contact":"Hubungi","cta.register":"Daftar sekarang","cta.abstract":"Panggilan abstrak",
+ms:{"nav.sponsors":"Penaja","sp.eye":"Penajaan & pameran","sp.title":"Perkongsian anda. <em>Visi kita bersama.</em>","sp.lede":"Sertai KIHC 2027 sebagai rakan korporat dan berhubung dengan 400–500 delegasi kebangsaan dan antarabangsa sepanjang dua hari perbincangan tentang perubahan mampan dalam kesihatan dan masyarakat.","sp.rec":"penaja korporat menyokong KIHC sulung 2025","sp.rec2":"1 Platinum · 1 Gold · 2 Silver · 9 Bronze",
+"why.1":"Khalayak profesional yang relevan","why.1p":"Klinisian, pengamal kesihatan awam, ahli akademik, penyelidik, pelajar, penggubal dasar dan industri.","why.2":"Kehadiran jenama yang berwibawa","why.2p":"Keterlihatan melalui saluran rasmi persidangan, pameran dan di tapak.","why.3":"Perbualan bermakna","why.3p":"Bertemu mereka yang membentuk program dan penyelidikan kesihatan di Malaysia dan rantau ini.","why.4":"Sejajar dengan kemampanan","why.4p":"Menyokong perbincangan tentang komuniti sihat, kesejahteraan planet dan perkongsian berpanjangan.",
+"lunch.h":"Simposium Makan Tengah Hari Tajaan Industri & Jaringan","lunch.l":["Satu simposium pendidikan makan tengah hari selama 45–60 minit","Makan tengah hari delegasi mengikut peruntukan katering yang dipersetujui","Penghargaan dalam program, penjenamaan pada skrin dan promosi digital yang diluluskan","Satu reruai standard dan tiga pas delegasi","Ringkasan kehadiran sesi, jika data tersedia"],"lunch.n":"Dua sesi tersedia sepanjang dua hari. Topik, penceramah dan bahan disemak oleh Jawatankuasa Saintifik.","exh.h":"Reruai pameran sahaja","exh.p":"Reruai standard dua hari untuk organisasi yang ingin mempamer tanpa pakej penajaan. Setiap peringkat penajaan sudah termasuk reruai.",
+"pr.1":"Kebebasan saintifik","pr.1p":"Penaja tidak menentukan kandungan program, penceramah atau kesimpulan.","pr.2":"Pengiktirafan telus","pr.2p":"Simposium dan bahan tajaan dikenal pasti dengan jelas.","pr.3":"Penglibatan yang wajar","pr.3p":"Semua produk dan dakwaan mematuhi undang-undang dan kod sektor Malaysia.","pr.4":"Privasi & persetujuan","pr.4p":"Data delegasi tidak dikongsi tanpa asas sah dan persetujuan.","pr.5":"Pengesahan bertulis","pr.5p":"Reruai, katering, media, AV dan eksklusiviti disahkan secara bertulis.",
+"sp.dl":"Lihat prospektus penajaan (PDF)","sp.eoi":"Nyatakan minat","sp.note":"<b>Tertakluk kepada pengesahan.</b> Semua pakej dan keistimewaan tertakluk kepada kelulusan penganjur, program saintifik, susunan tempat dan pengesahan bertandatangan.",
+"nav.about":"Tentang","nav.tracks":"Trek","nav.dates":"Tarikh Penting","nav.programme":"Atur Cara","nav.highlights":"Sorotan","nav.venue":"Lokasi","nav.register":"Pendaftaran","nav.contact":"Hubungi","cta.register":"Daftar sekarang","cta.abstract":"Panggilan abstrak",
 "hero.kicker":"Persidangan Kesihatan Antarabangsa Kedah Kali Ke-2","hero.l1":"Planet, Manusia & Perkongsian","hero.l2":"Memacu Perubahan Mampan","hero.date":"11–12 Ogos 2027","tentative":"Tentatif","hero.venue":"Universiti Antarabangsa Albukhary, Alor Setar",
-"cd.days":"Hari","cd.hours":"Jam","cd.mins":"Minit","cd.secs":"Saat","cd.cap":"Menjelang majlis perasmian · 11 Ogos 2027, 8.30 pagi",
+"cd.days":"Hari","cd.hours":"Jam","cd.mins":"Minit","cd.secs":"Saat","cd.cap":"Menjelang majlis perasmian · 11 Ogos 2027, 8.45 pagi",
 "org.l1":"Anjuran","org.co":"Penganjur bersama","org.l2":"Dengan kerjasama","org.jkn":"Jabatan Kesihatan Negeri Kedah","org.l3":"Penganjur bersama & tuan rumah",
 "about.eye":"Tentang persidangan","about.title":"Satu Kesihatan untuk Kedah yang <em>berdaya tahan</em>, dan seterusnya","about.lede":"Risiko kesihatan kini merentasi manusia, haiwan dan alam sekitar. KIHC 2027 menghimpunkan semua sektor yang membentuknya dalam satu platform.",
 "about.p1":"Perubahan iklim, cuaca panas melampau, pencemaran, penyakit zoonotik, rintangan antimikrob, bencana dan beban penyakit tidak berjangkit yang semakin meningkat tidak dapat diatasi oleh sektor kesihatan sahaja. Gabungan bandar, kawasan padi, komuniti pesisir dan pulau serta sempadan antarabangsa menjadikan Kedah tempat yang sesuai untuk menguji penyelesaian praktikal rentas sektor.",
-"about.p2":"Meneruskan kejayaan KIHC pertama, edisi kedua ini meluaskan fokus daripada penglibatan komuniti kepada Satu Kesihatan (One Health), kesihatan planet, kemampanan dan daya tahan. Selama dua hari, penggubal dasar, pengamal, penyelidik, pihak berkuasa tempatan, industri dan komuniti akan berkongsi bukti dan pulang dengan komitmen yang boleh dilaksanakan.",
+"about.p2":"Meneruskan kejayaan KIHC sulung 2025, edisi kedua ini meluaskan fokus daripada penglibatan komuniti kepada Satu Kesihatan (One Health), kesihatan planet, kemampanan dan daya tahan. Selama dua hari, penggubal dasar, pengamal, penyelidik, pihak berkuasa tempatan, industri dan komuniti akan berkongsi bukti dan pulang dengan komitmen yang boleh dilaksanakan.",
 "obj.1":"Memperkukuh kerjasama antara agensi dalam mengaplikasi pendekatan Satu Kesihatan.","obj.2":"Berkongsi ilmu dan inovasi berkaitan penyakit berjangkit dan tidak berjangkit, AMR, perubahan iklim dan kesihatan persekitaran.","obj.3":"Meningkatkan kesiapsiagaan dan daya tahan sistem kesihatan merangkumi kesihatan manusia, haiwan dan alam sekitar.","obj.4":"Membina perkongsian strategik dan tindakan bersama untuk kesejahteraan komuniti yang mampan.",
-"stat.1":"hari persidangan","stat.2":"trek saintifik","stat.3":"jangkaan peserta","stat.4":"deklarasi Kedah komitmen bersama",
+"stat.1":"hari persidangan","stat.2":"trek saintifik","stat.3":"sasaran delegasi","stat.4":"deklarasi Kedah komitmen bersama",
 "tracks.eye":"Trek saintifik","tracks.title":"Lima trek, <em>satu</em> masa depan","tracks.lede":"Abstrak, simposium dan poster disusun di bawah lima bidang fokus, berteraskan Satu Kesihatan dan kesihatan planet.",
 "t1.h":"Bandar Sihat & Komuniti Mampan","t2.h":"Iklim, Alam Sekitar & Kesihatan Planet","t3.h":"Pencegahan Penyakit Sepanjang Hayat","t4.h":"Ancaman Kesihatan Baharu & Kesiapsiagaan","t5.h":"Inovasi & Masa Depan Kesejahteraan Komuniti",
 "t1.c":["Bandar Sihat","Kesihatan Bandar","Persekitaran Binaan","Pemerkasaan Komuniti"],"t2.c":["Perubahan Iklim","Haba & Pencemaran Udara","Air & Sanitasi","Pengurusan Sisa","Kesihatan Persekitaran"],"t3.c":["NCD","Kesihatan Mental","Penuaan Sihat","Pemakanan","Kesihatan Ibu & Anak","Kesihatan Remaja, Wanita & Lelaki"],"t4.c":["Penyakit Berjangkit","Zoonosis","Penyakit Bawaan Vektor","AMR","Pengurusan Risiko Bencana","Kesiapsiagaan Kecemasan"],"t5.c":["AI","Kesihatan Digital","Survelans","Penyelidikan","Bandar Pintar","Kesihatan Awam Presisi"],
@@ -675,7 +800,10 @@ ms:{"nav.about":"Tentang","nav.tracks":"Trek","nav.dates":"Tarikh Penting","nav.
 "dates.eye":"Tarikh penting","dates.title":"Tandakan <em>kalendar</em> anda","d1.h":"Pendaftaran & penghantaran abstrak dibuka","d1.p":"Portal dalam talian dilancarkan","d2.h":"Penghantaran abstrak ditutup","d2.p":"Kesemua lima trek","d3.h":"Makluman penerimaan","d3.p":"Lisan atau poster","d4.h":"Pendaftaran awal (early bird) tamat","d4.p":"Pembentang wajib mendaftar sebelum tarikh ini","d5.h":"Hari persidangan","d5.p":"Universiti Antarabangsa Albukhary","dates.note":"<b>Bulan indikatif.</b> Tarikh tepat akan diumumkan setelah disahkan oleh Jawatankuasa Penganjur dan Saintifik.",
 "prog.eye":"Atur cara ringkas","prog.title":"Dua hari <em>bukti</em> dan tindakan","prog.d1":"Hari 1","prog.d2":"Hari 2",
 "s.reg":"Pendaftaran & kopi sambutan","s.open":"Majlis perasmian","s.open.p":"Dirasmikan oleh Kerajaan Negeri Kedah","s.key":"Ucaptama","s.key.p":"Penceramah akan diumumkan","s.break":"Rehat & pameran poster","s.plen1":"Pleno 1 · Satu Kesihatan dalam amalan","s.lunch":"Makan tengah hari & solat","s.sym":"Simposium serentak · Trek 1–3","s.sym.p":"Pembentangan lisan di dewan selari","s.end1":"Tamat Hari 1","s.plen2":"Pleno 2 · Iklim dan kesihatan planet","s.sym2":"Simposium serentak · Trek 4–5","s.panel":"Forum panel rentas sektor","s.panel.p":"Kesihatan, veterinar, alam sekitar, PBT dan perancang bandar","s.decl":"Deklarasi Kedah & komitmen sektor","s.decl.p":"Rumusan pelapor dan menandatangani","s.close":"Anugerah & majlis penutup","s.close.p":"Pembentangan lisan dan poster terbaik",
-"w.foyer":"Lobi utama","w.dewan":"Dewan Konvokesyen","w.expo":"Ruang pameran","w.halls":"Dewan 1–3","prog.note":"<b>Draf ringkas.</b> Atur cara penuh berserta penceramah akan diterbitkan oleh Jawatankuasa Saintifik.",
+"pt.planet":"Planet","pt.people":"Manusia","pt.partnership":"Perkongsian","p.reg":"Pendaftaran & minum pagi","p.open":"Majlis perasmian","p.key":"Ucaptama perasmian","p.tea":"Rehat minum teh / kopi","p.sym13":"Simposium selari 1–3","p.sym46":"Simposium selari 4–6","p.lunch":"Makan tengah hari & jaringan","p.rt":"Pembentangan tema penyelidikan","p.rt2":"Pembentangan tema penyelidikan (sambungan)","p.wrap":"Rumusan Hari 1 & pengumuman","p.kd":"Ucaptama & perbincangan","p.coffee":"Rehat minum kopi","p.close":"Majlis penutup",
+"sy.1":"Simposium 1","sy.1.d":"Kesihatan Planet dan Sistem Kesihatan Mampan","sy.2":"Simposium 2","sy.2.d":"Ekuiti Kesihatan, Kesihatan Komuniti dan Kesejahteraan Insan","sy.3":"Simposium 3","sy.3.d":"Kepimpinan Kolaboratif dan Sistem Kesihatan Transformatif","sy.4":"Simposium 4","sy.4.d":"Topik lanjutan dalam kesihatan planet","sy.5":"Simposium 5","sy.5.d":"Topik lanjutan dalam kesihatan komuniti dan populasi","sy.6":"Simposium 6","sy.6.d":"Topik lanjutan dalam sistem kesihatan kolaboratif",
+"rt.1":"Tema Penyelidikan 1","rt.1.d":"Iklim, Satu Kesihatan, kesihatan persekitaran dan kemampanan","rt.2":"Tema Penyelidikan 2","rt.2.d":"Kesihatan populasi, ekuiti, pencegahan penyakit dan perkhidmatan kesihatan","rt.3":"Tema Penyelidikan 3","rt.3.d":"Sistem kesihatan, sains pelaksanaan, dasar dan kolaborasi",
+"w.foyer":"Lobi utama","w.dewan":"Dewan Konvokesyen","w.expo":"Ruang pameran","w.halls":"Dewan 1–3","prog.note":"<b>Atur cara tentatif.</b> Tertakluk kepada kelulusan Jawatankuasa Saintifik KIHC 2027. Penceramah akan diumumkan.",
 "hl.eye":"Sorotan acara","hl.title":"Apa yang <em>menanti</em> anda","h1.h":"Ucaptama & sesi pleno","h1.p":"Tokoh kebangsaan dan antarabangsa dalam kesihatan awam, Satu Kesihatan dan kemampanan.","h2.h":"Forum rentas sektor","h2.p":"Agensi kesihatan, veterinar, alam sekitar, perancangan bandar dan bencana di satu pentas.","h3.h":"Sesi lisan & poster","h3.p":"Inovasi tempatan dan pengalaman pelaksanaan, dengan anugerah untuk karya terbaik.","h4.h":"Pameran","h4.p":"Industri, penyedia teknologi, agensi dan NGO mempamerkan penyelesaian.","h5.h":"Deklarasi Kedah","h5.p":"Komitmen bersama sektor, disusuli selepas persidangan.","h6.h":"Mata CPD & prosiding","h6.p":"Kertas yang diterima akan dipertimbangkan untuk Laporan Teknikal Kedah.",
 "g.1":"Kampus AIU, Alor Setar","g.3":"Arked pada waktu malam","g.4":"Halaman & air pancut bintang","g.5":"Laluan kekisi","g.6":"Kubah & pohon palma","g.7":"Plaza bintang lapan bucu","g.8":"Laluan berbaris pohon palma","g.9":"Dataran utama","g.10":"Boulevard utama",
 "venue.eye":"Lokasi","venue.lede":"Kampus dengan arked putih, kubah keemasan dan halaman berpola bintang di Alor Setar, ibu negeri Kedah. AIU menyertai KIHC 2027 sebagai penganjur bersama dan tuan rumah.","tr.air":"Udara","tr.air.p":"Lapangan Terbang Sultan Abdul Halim (Alor Setar) untuk penerbangan domestik; Lapangan Terbang Antarabangsa Pulau Pinang untuk sambungan antarabangsa.","tr.rail":"Kereta api","tr.rail.p":"Perkhidmatan KTM ETS ke stesen Alor Setar.","tr.stay":"Penginapan","tr.stay.p":"Senarai hotel rakan dan kadar persidangan akan diterbitkan di sini.",
@@ -706,7 +834,8 @@ function applyLang(l){
   document.querySelectorAll("[data-i18n-html]").forEach(el=>{el.innerHTML=t(el.dataset.i18nHtml)});
   document.querySelectorAll("[data-chips]").forEach(el=>{const a=t(el.dataset.chips); if(Array.isArray(a)) el.innerHTML=a.map(x=>`<span>${esc(x)}</span>`).join("")});
   document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===l));
-  renderFees(); fillCats(); total();
+  renderFees(); fillCats(); total(); renderTiers();
+  document.querySelectorAll("[data-list]").forEach(el=>{const a=t(el.dataset.list); if(Array.isArray(a)) el.innerHTML=a.map(x=>`<li>${esc(x)}</li>`).join("")});
   try{localStorage.setItem("kihc-lang",l)}catch(e){}
 }
 function money(c,v){return c==="RM"?`RM ${v}`:`USD ${v}`}
@@ -747,7 +876,7 @@ const nav=document.getElementById("nav"),mb=document.getElementById("menu-btn");
 mb.addEventListener("click",()=>{const o=nav.classList.toggle("open");mb.setAttribute("aria-expanded",o)});
 nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");mb.setAttribute("aria-expanded",false)}));
 // countdown to 11 Aug 2027 08:30 MYT
-const target=Date.parse("2027-08-11T08:30:00+08:00");
+const target=Date.parse("2027-08-11T08:45:00+08:00");
 const pad=n=>String(n).padStart(2,"0");
 function tick(){
   let d=Math.max(0,target-Date.now());

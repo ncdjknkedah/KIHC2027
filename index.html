@@ -236,6 +236,23 @@ table.fees{width:100%;border-collapse:collapse;min-width:520px}
 .includes{font-size:.9rem;color:var(--ink-soft);margin-top:14px}
 
 .pay{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px}
+.pay-main{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.pay-hero{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:var(--r);padding:26px 26px 24px;min-width:0;box-shadow:0 18px 40px -30px rgba(16,48,45,.35)}
+.pay-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.pay-top svg{width:34px;height:34px;color:var(--teal)}
+.rec{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:var(--sky);color:var(--teal);padding:4px 10px;border-radius:999px}
+.pay-hero h3{font-family:var(--f-display);font-weight:600;font-size:1.8rem;margin-top:14px}
+.pay-hero p{color:var(--ink-soft);margin-top:6px;font-size:.96rem}
+.ticks{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+.ticks li{font-size:.84rem;padding:5px 12px 5px 28px;border-radius:999px;background:var(--bg);border:1px solid var(--line);position:relative}
+.ticks li::before{content:"✓";position:absolute;left:11px;color:var(--teal);font-weight:700}
+.pay-alt{display:grid;grid-template-columns:auto 1fr 1fr;gap:12px 24px;align-items:start;margin-top:16px;padding:18px 22px;border:1px dashed var(--line);border-radius:var(--r)}
+.pay-alt-label{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);padding-top:3px}
+.pay-alt-item{display:grid;grid-template-columns:22px 1fr;gap:10px;min-width:0}
+.pay-alt-item svg{width:20px;height:20px;color:var(--ink-soft);margin-top:2px}
+.pay-alt-item b{display:block;font-size:.92rem}
+.pay-alt-item span{font-size:.85rem;color:var(--ink-soft)}
+@media (max-width:760px){.pay-main{grid-template-columns:1fr}.pay-alt{grid-template-columns:1fr}}
 .pay-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px;min-width:0}
 .pay-card svg{width:28px;height:28px;color:var(--teal)}
 .pay-card h3{font-family:var(--f-body);font-weight:700;font-size:1.02rem;margin-top:12px}
@@ -350,6 +367,33 @@ footer .brand span{color:#9fb5b0}
 @media (max-width:900px){.principles{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.principles{grid-template-columns:1fr}}
 .sp-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:36px}
+/* terms dialog */
+.only-ms{display:none}
+html[lang="ms"] .only-ms{display:block} html[lang="ms"] .only-en{display:none}
+dialog.legal{width:min(760px,calc(100vw - 32px));max-height:min(86vh,900px);padding:0;border:1px solid var(--line);border-radius:16px;background:var(--surface);color:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,.35)}
+dialog.legal::backdrop{background:rgba(6,22,21,.6)}
+.legal-head{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px 10px 22px;background:var(--surface);border-bottom:1px solid var(--line);font-family:var(--f-mono);font-size:.78rem;letter-spacing:.14em;color:var(--gold)}
+.legal-tabs{display:flex;gap:4px;flex-wrap:wrap;min-width:0}
+.legal-tabs button{border:0;background:none;font:600 .86rem var(--f-body);letter-spacing:0;color:var(--ink-soft);padding:8px 12px;border-radius:8px;cursor:pointer}
+.legal-tabs button[aria-selected="true"]{background:var(--sky);color:var(--ink)}
+.legal-tbl{overflow-x:auto;margin:12px 0}
+.legal-tbl table{border-collapse:collapse;width:100%;font-size:.92rem}
+.legal-tbl th,.legal-tbl td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+.legal-tbl th{background:var(--bg);font-weight:700;color:var(--ink)}
+.legal-body ul{padding-left:20px;margin:0;display:grid;gap:4px}
+.legal-body a{color:var(--teal)}
+.legal-body .upd{font-family:var(--f-mono);font-size:.8rem;margin-top:22px}
+.legal-x{flex:none;border:1px solid var(--line);background:none;color:var(--ink);border-radius:8px;width:34px;height:34px;cursor:pointer;font-size:1rem}
+.legal-body{padding:8px 26px 28px;overflow:auto;max-height:calc(min(86vh,900px) - 64px);font-size:.95rem}
+.legal-body h2{font-family:var(--f-title);font-weight:400;font-size:1.8rem;margin:18px 0 10px}
+.legal-body h3{font-family:var(--f-body);font-weight:700;font-size:1rem;margin:20px 0 6px}
+.legal-body p,.legal-body li{color:var(--ink-soft)}
+.legal-body ol{padding-left:22px;margin:0;display:grid;gap:4px}
+.agree{display:flex;gap:10px;align-items:flex-start;font-weight:500;font-size:.9rem;margin-top:16px;cursor:pointer}
+.agree input{width:auto;margin-top:4px;accent-color:var(--teal)}
+.agree a{color:var(--teal)}
+.foot-links{display:flex;flex-wrap:wrap;gap:6px}
+.foot-links a{color:#f0d79c}
 .star-rule{display:flex;align-items:center;gap:14px;color:var(--gold);margin-top:22px}
 .star-rule::before,.star-rule::after{content:"";height:1px;flex:1;background:var(--line)}
 .star-rule svg{width:16px;height:16px}
@@ -606,11 +650,33 @@ footer .brand span{color:#9fb5b0}
     <p class="note"><svg width="18" height="18" style="flex:none;color:var(--gold);margin-top:3px"><use href="#star"/></svg><span data-i18n-html="fee.note"><b>Proposed fees.</b> Early or standard rates will be confirmed after the venue quotation is received.</span></p>
 
     <h3 class="sec-title" style="font-size:clamp(1.6rem,3vw,2.2rem);margin-top:64px" data-i18n="pay.title">Ways to pay</h3>
-    <div class="pay" style="margin-top:24px">
-      <div class="pay-card"><svg><use href="#i-bank"/></svg><h3>FPX Online Banking</h3><p class="for" data-i18n="pay.local">Malaysia</p><p data-i18n="pay.fpx">Instant payment from Malaysian bank accounts. Receipt issued automatically.</p></div>
-      <div class="pay-card"><svg><use href="#i-card"/></svg><h3 data-i18n="pay.card.h">Credit / debit card</h3><p class="for" data-i18n="pay.all">Malaysia &amp; international</p><p data-i18n="pay.card">Visa and Mastercard through a secure payment gateway. Best option for overseas participants.</p></div>
-      <div class="pay-card"><svg><use href="#i-globe"/></svg><h3 data-i18n="pay.tt.h">Bank transfer (TT / SWIFT)</h3><p class="for" data-i18n="pay.intl">International</p><p data-i18n="pay.tt">Transfer to the association's account. All bank charges are borne by the participant. Upload proof of payment.</p></div>
-      <div class="pay-card"><svg><use href="#i-doc"/></svg><h3 data-i18n="pay.lo.h">Government LO / purchase order</h3><p class="for" data-i18n="pay.gov">Malaysian agencies</p><p data-i18n="pay.lo">For officers sponsored by their department. Upload the Local Order; an invoice will be issued.</p></div>
+    <p class="lede" style="margin-top:10px" data-i18n="pay.lede">Pay online in a few minutes and receive your official e-receipt immediately.</p>
+    <div class="pay-main">
+      <article class="pay-hero">
+        <div class="pay-top"><svg><use href="#i-bank"/></svg><span class="rec" data-i18n="pay.rec1">Recommended for Malaysian participants</span></div>
+        <h3>FPX Online Banking</h3>
+        <p data-i18n="pay.fpx2">Pay directly from your Malaysian bank account through FPX. Supported by all major banks in Malaysia, with no card needed.</p>
+        <ul class="ticks">
+          <li data-i18n="pay.fpx.t1">Instant confirmation</li>
+          <li data-i18n="pay.fpx.t2">Official e-receipt by email</li>
+          <li data-i18n="pay.fpx.t3">Personal and corporate accounts</li>
+        </ul>
+      </article>
+      <article class="pay-hero">
+        <div class="pay-top"><svg><use href="#i-card"/></svg><span class="rec" data-i18n="pay.rec2">Malaysian &amp; international participants</span></div>
+        <h3 data-i18n="pay.card.h">Credit / debit card</h3>
+        <p data-i18n="pay.card2">Visa or Mastercard through a secure payment gateway. Works for cards issued in Malaysia and overseas.</p>
+        <ul class="ticks">
+          <li data-i18n="pay.card.t1">Instant confirmation</li>
+          <li data-i18n="pay.card.t2">Official e-receipt by email</li>
+          <li data-i18n="pay.card.t3">Secure, encrypted checkout</li>
+        </ul>
+      </article>
+    </div>
+    <div class="pay-alt">
+      <span class="pay-alt-label" data-i18n="pay.other">Other options</span>
+      <div class="pay-alt-item"><svg><use href="#i-doc"/></svg><div><b data-i18n="pay.lo.h">Government LO / purchase order</b><span data-i18n="pay.lo">For officers sponsored by their department. Upload the Local Order; an invoice will be issued.</span></div></div>
+      <div class="pay-alt-item"><svg><use href="#i-globe"/></svg><div><b data-i18n="pay.tt.h">Bank transfer (TT / SWIFT)</b><span data-i18n="pay.tt">Transfer to the association's account. All bank charges are borne by the participant. Upload proof of payment.</span></div></div>
     </div>
 
     <div class="reg">
@@ -640,6 +706,7 @@ footer .brand span{color:#9fb5b0}
             </div></div>
         </div>
         <div class="total"><span data-i18n="f.total">Amount payable</span><b id="f-total">RM 0</b></div>
+        <label class="agree" for="f-agree"><input type="checkbox" id="f-agree"> <span><span data-i18n="tc.agree">I have read and agree to the</span> <a href="#terms" class="open-legal" data-doc="terms" data-i18n="tc.link">Terms &amp; Conditions</a>, <a href="#refund" class="open-legal" data-doc="refund" data-i18n="lg.refund">Refund Policy</a> <span data-i18n="tc.and">and</span> <a href="#privacy" class="open-legal" data-doc="privacy" data-i18n="lg.privacy">Privacy Policy</a>.</span></label>
         <div class="form-foot"><button class="btn dark" type="submit" data-i18n="f.submit">Continue to payment</button><span class="demo" data-i18n="f.demo">DEMO · NO DATA IS SENT</span></div>
         <div class="done" id="f-done" hidden></div>
       </form>
@@ -687,7 +754,7 @@ footer .brand span{color:#9fb5b0}
     </ul>
     <div class="sp-cta">
       <a class="btn gold" href="KIHC2027%20SPONSORSHIP%20PROSPECTUS.pdf" target="_blank" rel="noopener" data-i18n="sp.dl">View sponsorship prospectus (PDF)</a>
-      <a class="btn ghost" href="#contact" data-i18n="sp.eoi">Express interest</a>
+      <a class="btn ghost" href="mailto:persatuanppkakedah@gmail.com?subject=KIHC%202027%20Sponsorship%20Enquiry" data-i18n="sp.eoi">Express interest</a>
     </div>
     <p class="note"><svg width="18" height="18" style="flex:none;color:var(--gold);margin-top:3px"><use href="#star"/></svg><span data-i18n-html="sp.note"><b>Subject to confirmation.</b> All packages and privileges remain subject to organiser approval, the scientific programme, venue arrangements and a signed confirmation.</span></p>
   </div>
@@ -714,8 +781,9 @@ footer .brand span{color:#9fb5b0}
       <p class="lede" data-i18n="ct.lede">Questions about registration, payment or the programme? Reach the KIHC 2027 secretariat.</p>
     </div>
     <dl>
-      <dt data-i18n="ct.email">Email</dt><dd data-i18n="ct.tbc">To be announced</dd>
-      <dt data-i18n="ct.phone">Phone</dt><dd data-i18n="ct.tbc">To be announced</dd>
+      <dt data-i18n="ct.email">Email</dt><dd><a href="mailto:persatuanppkakedah@gmail.com">persatuanppkakedah@gmail.com</a></dd>
+      <dt data-i18n="ct.phone">Phone</dt><dd><a href="tel:+6047300191">+60 4-730 0191</a></dd>
+      <dt data-i18n="ct.ros">ROS reg. no.</dt><dd>PPM-017-02-01032023</dd>
       <dt data-i18n="ct.addr">Secretariat</dt><dd>Persatuan Pakar Perubatan Kesihatan Awam Negeri Kedah, Alor Setar, Kedah, Malaysia</dd>
     </dl>
   </div>
@@ -723,6 +791,85 @@ footer .brand span{color:#9fb5b0}
 </section>
 </main>
 
+<dialog id="terms" class="legal" aria-label="KIHC 2027 policies">
+  <div class="legal-head">
+    <div class="legal-tabs" role="tablist">
+      <button type="button" role="tab" data-doc="terms" data-i18n="lg.terms">Terms &amp; Conditions</button>
+      <button type="button" role="tab" data-doc="refund" data-i18n="lg.refund">Refund Policy</button>
+      <button type="button" role="tab" data-doc="privacy" data-i18n="lg.privacy">Privacy Policy</button>
+    </div>
+    <button type="button" class="legal-x" id="terms-close" aria-label="Close">✕</button>
+  </div>
+  <div class="legal-body" id="legal-body">
+    <section data-doc="terms"><div class="only-en"><h2>Terms &amp; Conditions of Registration</h2>
+<p>These terms apply to every registration for the 2nd Kedah International Health Conference (KIHC 2027), organised by Persatuan Pakar Perubatan Kesihatan Awam Negeri Kedah (PPM-017-02-01032023) ("the Organiser") and co-organised by Albukhary International University. By registering, you agree to these terms.</p>
+<h3>1. Registration and confirmation</h3><ol><li>Registration is complete only when full payment has been received, or when a valid Government Local Order (LO) has been accepted.</li><li>A confirmation email with your registration number and an official e-receipt will be sent after payment is verified.</li><li>Registration is personal to the named participant and may not be shared.</li></ol>
+<h3>2. Fees and categories</h3><ol><li>Fees are as published on the conference website: Malaysian participant RM400, international participant USD120, student RM250 and day registration RM250 (if offered).</li><li>Student registration requires a valid full-time student identification. The Organiser may ask for proof and may reclassify a registration that does not meet the criteria.</li><li>Student places are limited and allocated on a first-come basis.</li><li>The fee covers conference sessions, conference materials, refreshments and lunch on the registered day(s), and a certificate of attendance. It does not cover travel, accommodation or visa costs.</li></ol>
+<h3>3. Payment</h3><ol><li>Payment may be made by FPX online banking or credit/debit card through the Organiser's appointed payment provider, by Government LO, or by international bank transfer.</li><li>All bank and transfer charges for international bank transfers are borne by the participant.</li><li>For Government LO, the LO must be submitted by the date stated in the registration confirmation and settled according to the invoice terms.</li><li>The Organiser does not store card details. Card payments are processed by the payment provider.</li></ol>
+<h3>4. Cancellation and substitution</h3><p>Cancellations, refunds and substitutions are governed by the <a href="#refund" class="open-legal" data-doc="refund">Cancellation &amp; Refund Policy</a>.</p>
+<h3>5. Abstract presenters</h3><p>At least one author of each accepted abstract must register and pay by the early-bird deadline for the abstract to remain in the programme.</p>
+<h3>6. Changes to the programme</h3><p>The Organiser may change the programme, speakers, sessions or venue arrangements where necessary. Such changes do not entitle participants to a refund.</p>
+<h3>7. Cancellation of the conference</h3><p>If the conference is cancelled by the Organiser, participants will receive a full refund of the registration fee. The Organiser is not liable for travel, accommodation or other costs incurred by participants. If the conference cannot proceed because of events beyond the Organiser's control, the Organiser may postpone it or move it online instead of refunding.</p>
+<h3>8. Photography and recording</h3><p>The conference may be photographed and recorded for documentation and promotion. By attending, participants consent to appearing in such materials. Participants who do not wish to be photographed should inform the registration desk.</p>
+<h3>9. Conduct</h3><p>Participants are expected to behave professionally and respectfully. The Organiser may remove anyone whose conduct disrupts the conference, without refund.</p>
+<h3>10. Liability</h3><p>The Organiser is not responsible for loss of or damage to personal belongings, or for injury, except where caused by the Organiser's negligence.</p>
+<h3>11. Governing law</h3><p>These terms are governed by the laws of Malaysia.</p>
+<h3>12. Contact</h3><p>Questions about these terms may be sent to the KIHC 2027 Secretariat at <a href="mailto:persatuanppkakedah@gmail.com">persatuanppkakedah@gmail.com</a> or +60 4-730 0191.</p></div><div class="only-ms"><h2>Terma &amp; Syarat Pendaftaran</h2>
+<p>Terma ini terpakai kepada setiap pendaftaran bagi Persidangan Kesihatan Antarabangsa Kedah Kali Ke-2 (KIHC 2027), anjuran Persatuan Pakar Perubatan Kesihatan Awam Negeri Kedah (PPM-017-02-01032023) ("Penganjur") dengan Universiti Antarabangsa Albukhary sebagai penganjur bersama. Dengan mendaftar, anda bersetuju dengan terma ini.</p>
+<h3>1. Pendaftaran dan pengesahan</h3><ol><li>Pendaftaran hanya lengkap apabila bayaran penuh diterima, atau apabila Pesanan Tempatan (LO) Kerajaan yang sah diterima.</li><li>E-mel pengesahan berserta nombor pendaftaran dan e-resit rasmi akan dihantar selepas bayaran disahkan.</li><li>Pendaftaran adalah untuk peserta yang dinamakan sahaja dan tidak boleh dikongsi.</li></ol>
+<h3>2. Yuran dan kategori</h3><ol><li>Yuran adalah seperti yang dipaparkan di laman web persidangan: peserta Malaysia RM400, peserta antarabangsa USD120, pelajar RM250 dan pendaftaran harian RM250 (jika ditawarkan).</li><li>Pendaftaran pelajar memerlukan kad pelajar sepenuh masa yang sah. Penganjur boleh meminta bukti dan boleh menukar kategori pendaftaran yang tidak memenuhi syarat.</li><li>Tempat untuk pelajar adalah terhad dan diberi mengikut siapa cepat dia dapat.</li><li>Yuran merangkumi sesi persidangan, bahan persidangan, minum pagi/petang dan makan tengah hari pada hari yang didaftarkan, serta sijil penyertaan. Yuran tidak merangkumi kos perjalanan, penginapan atau visa.</li></ol>
+<h3>3. Pembayaran</h3><ol><li>Bayaran boleh dibuat melalui perbankan dalam talian FPX atau kad kredit/debit melalui penyedia pembayaran yang dilantik oleh Penganjur, melalui LO Kerajaan, atau melalui pindahan bank antarabangsa.</li><li>Semua caj bank dan pindahan bagi pindahan bank antarabangsa ditanggung oleh peserta.</li><li>Bagi LO Kerajaan, LO hendaklah dikemukakan sebelum tarikh yang dinyatakan dalam pengesahan pendaftaran dan dijelaskan mengikut terma invois.</li><li>Penganjur tidak menyimpan butiran kad. Bayaran kad diproses oleh penyedia pembayaran.</li></ol>
+<h3>4. Pembatalan dan penggantian</h3><p>Pembatalan, bayaran balik dan penggantian tertakluk kepada <a href="#refund" class="open-legal" data-doc="refund">Polisi Pembatalan &amp; Bayaran Balik</a>.</p>
+<h3>5. Pembentang abstrak</h3><p>Sekurang-kurangnya seorang penulis bagi setiap abstrak yang diterima hendaklah mendaftar dan membayar sebelum tarikh akhir pendaftaran awal supaya abstrak kekal dalam program.</p>
+<h3>6. Perubahan program</h3><p>Penganjur boleh mengubah program, penceramah, sesi atau susunan tempat jika perlu. Perubahan sedemikian tidak melayakkan peserta mendapat bayaran balik.</p>
+<h3>7. Pembatalan persidangan</h3><p>Jika persidangan dibatalkan oleh Penganjur, peserta akan menerima bayaran balik penuh yuran pendaftaran. Penganjur tidak bertanggungjawab atas kos perjalanan, penginapan atau kos lain yang ditanggung peserta. Jika persidangan tidak dapat diteruskan kerana keadaan di luar kawalan Penganjur, Penganjur boleh menangguhkannya atau mengadakannya secara dalam talian sebagai ganti bayaran balik.</p>
+<h3>8. Gambar dan rakaman</h3><p>Persidangan mungkin diambil gambar dan dirakam untuk dokumentasi dan promosi. Dengan hadir, peserta bersetuju untuk muncul dalam bahan tersebut. Peserta yang tidak mahu diambil gambar boleh memaklumkan kaunter pendaftaran.</p>
+<h3>9. Tatakelakuan</h3><p>Peserta dikehendaki berkelakuan profesional dan saling menghormati. Penganjur boleh mengeluarkan sesiapa yang mengganggu persidangan, tanpa bayaran balik.</p>
+<h3>10. Liabiliti</h3><p>Penganjur tidak bertanggungjawab atas kehilangan atau kerosakan barang peribadi, atau kecederaan, kecuali jika disebabkan oleh kecuaian Penganjur.</p>
+<h3>11. Undang-undang yang terpakai</h3><p>Terma ini tertakluk kepada undang-undang Malaysia.</p>
+<h3>12. Hubungi</h3><p>Sebarang pertanyaan mengenai terma ini boleh dihantar kepada Sekretariat KIHC 2027 di <a href="mailto:persatuanppkakedah@gmail.com">persatuanppkakedah@gmail.com</a> atau +60 4-730 0191.</p></div></section>
+    <section data-doc="refund" hidden><div class="only-en"><h2>Cancellation &amp; Refund Policy</h2>
+<p>Refunds depend on when the written cancellation reaches the Secretariat. The conference starts on 11 August 2027.</p>
+<div class="legal-tbl"><table><thead><tr><th>Cancellation received</th><th>Refund</th></tr></thead><tbody>
+<tr><td>On or before 12 June 2027</td><td>Full fee, less an administrative charge of RM50 / USD15</td></tr>
+<tr><td>13 June – 12 July 2027</td><td>50% of the fee</td></tr>
+<tr><td>After 12 July 2027, or no-show</td><td>No refund</td></tr></tbody></table></div>
+<h3>How to cancel</h3><ol><li>Email the Secretariat at <a href="mailto:persatuanppkakedah@gmail.com">persatuanppkakedah@gmail.com</a> with your name and registration number. Cancellations by phone or message are not accepted.</li><li>The Secretariat will acknowledge your request by email.</li></ol>
+<h3>How refunds are paid</h3><ol><li>Refunds for FPX and card payments are returned to the original payment method through the payment provider within 21 working days of approval.</li><li>Payment provider transaction fees are not refunded.</li><li>Refunds for international bank transfers are paid by bank transfer. Bank charges are deducted from the refund.</li><li>Registrations paid by Government LO that have not yet been invoiced will be cancelled without charge. Paid LO registrations follow the table above.</li></ol>
+<h3>Substitution</h3><p>A registered participant who cannot attend may transfer the registration to a colleague of the same category at no charge until 28 July 2027. Send the new participant's details to the Secretariat by email.</p>
+<h3>Cancellation by the Organiser</h3><p>If the Organiser cancels the conference, the full registration fee will be refunded. See section 7 of the <a href="#terms" class="open-legal" data-doc="terms">Terms &amp; Conditions</a>.</p></div><div class="only-ms"><h2>Polisi Pembatalan &amp; Bayaran Balik</h2>
+<p>Bayaran balik bergantung pada tarikh notis pembatalan bertulis diterima oleh Sekretariat. Persidangan bermula pada 11 Ogos 2027.</p>
+<div class="legal-tbl"><table><thead><tr><th>Pembatalan diterima</th><th>Bayaran balik</th></tr></thead><tbody>
+<tr><td>Pada atau sebelum 12 Jun 2027</td><td>Yuran penuh, tolak caj pentadbiran RM50 / USD15</td></tr>
+<tr><td>13 Jun – 12 Julai 2027</td><td>50% daripada yuran</td></tr>
+<tr><td>Selepas 12 Julai 2027, atau tidak hadir</td><td>Tiada bayaran balik</td></tr></tbody></table></div>
+<h3>Cara membatalkan</h3><ol><li>E-mel Sekretariat di <a href="mailto:persatuanppkakedah@gmail.com">persatuanppkakedah@gmail.com</a> dengan nama dan nombor pendaftaran anda. Pembatalan melalui telefon atau mesej tidak diterima.</li><li>Sekretariat akan memaklumkan penerimaan permohonan anda melalui e-mel.</li></ol>
+<h3>Cara bayaran balik dibuat</h3><ol><li>Bayaran balik bagi bayaran FPX dan kad dipulangkan ke kaedah bayaran asal melalui penyedia pembayaran dalam tempoh 21 hari bekerja selepas diluluskan.</li><li>Fi transaksi penyedia pembayaran tidak dipulangkan.</li><li>Bayaran balik bagi pindahan bank antarabangsa dibuat melalui pindahan bank. Caj bank akan ditolak daripada jumlah bayaran balik.</li><li>Pendaftaran melalui LO Kerajaan yang belum diinvois akan dibatalkan tanpa caj. Pendaftaran LO yang telah dibayar tertakluk kepada jadual di atas.</li></ol>
+<h3>Penggantian peserta</h3><p>Peserta berdaftar yang tidak dapat hadir boleh memindahkan pendaftaran kepada rakan sekerja dalam kategori yang sama tanpa caj sehingga 28 Julai 2027. Hantar butiran peserta baharu kepada Sekretariat melalui e-mel.</p>
+<h3>Pembatalan oleh Penganjur</h3><p>Jika Penganjur membatalkan persidangan, yuran pendaftaran akan dipulangkan sepenuhnya. Rujuk seksyen 7 <a href="#terms" class="open-legal" data-doc="terms">Terma &amp; Syarat</a>.</p></div></section>
+    <section data-doc="privacy" hidden><div class="only-en"><h2>Privacy Policy</h2>
+<p>Persatuan Pakar Perubatan Kesihatan Awam Negeri Kedah ("the Organiser") collects only the personal data needed to run KIHC 2027 and handles it in line with Malaysia's Personal Data Protection Act 2010.</p>
+<h3>1. Data we collect</h3><ul><li>Name, title and designation</li><li>Email address and phone number</li><li>Organisation, country and registration category</li><li>Professional registration numbers, where needed for CPD points</li><li>Student identification, for student registration</li><li>Payment records (amount, method, reference number). Card and bank login details are handled by the payment provider and are never received or stored by the Organiser.</li><li>Abstract submissions and author details, for presenters</li></ul>
+<h3>2. How we use it</h3><ul><li>To process registration, payment, receipts and invoices</li><li>To issue certificates of attendance and CPD points</li><li>To send conference information and updates</li><li>To manage abstract review and the conference programme</li><li>To prepare anonymised attendance statistics for reports</li></ul>
+<h3>3. Who can see it</h3><ul><li>Members of the KIHC 2027 Organising Committee who need it for their duties</li><li>The Organiser's appointed payment provider, for processing payments</li><li>The co-organiser, Albukhary International University, only for venue access and logistics</li><li>CPD authorities, for awarding CPD points</li></ul>
+<p>The Organiser does not sell personal data. Sponsors and exhibitors do not receive participant contact details without the participant's consent.</p>
+<h3>4. Storage and retention</h3><p>Data is stored in access-controlled systems used by the Organising Committee. It is kept for 2 years after the conference for certificate verification and reporting, then deleted.</p>
+<h3>5. Your rights</h3><p>You may ask to see, correct or withdraw consent for the use of your personal data by emailing the Secretariat at <a href="mailto:persatuanppkakedah@gmail.com">persatuanppkakedah@gmail.com</a>. Withdrawing consent before the conference may mean we cannot complete your registration.</p>
+<h3>6. Photographs and recordings</h3><p>Photographs and recordings taken at the conference may be used in reports, the conference website and the Organiser's social media.</p>
+<h3>7. Changes to this policy</h3><p>Updates to this policy will be posted on this page with the date of the change.</p>
+<p class="upd">Last updated: 4 November 2026</p></div><div class="only-ms"><h2>Polisi Privasi</h2>
+<p>Persatuan Pakar Perubatan Kesihatan Awam Negeri Kedah ("Penganjur") hanya mengumpul data peribadi yang diperlukan untuk mengendalikan KIHC 2027, dan mengurusnya selaras dengan Akta Perlindungan Data Peribadi 2010.</p>
+<h3>1. Data yang dikumpul</h3><ul><li>Nama, gelaran dan jawatan</li><li>Alamat e-mel dan nombor telefon</li><li>Organisasi, negara dan kategori pendaftaran</li><li>Nombor pendaftaran profesional, jika diperlukan untuk mata CPD</li><li>Kad pelajar, bagi pendaftaran pelajar</li><li>Rekod pembayaran (jumlah, kaedah, nombor rujukan). Butiran kad dan log masuk bank diuruskan oleh penyedia pembayaran dan tidak sekali-kali diterima atau disimpan oleh Penganjur.</li><li>Abstrak dan butiran penulis, bagi pembentang</li></ul>
+<h3>2. Kegunaan data</h3><ul><li>Memproses pendaftaran, bayaran, resit dan invois</li><li>Mengeluarkan sijil penyertaan dan mata CPD</li><li>Menghantar maklumat dan makluman persidangan</li><li>Menguruskan penilaian abstrak dan program persidangan</li><li>Menyediakan statistik kehadiran tanpa nama untuk laporan</li></ul>
+<h3>3. Siapa yang boleh mengakses</h3><ul><li>Ahli Jawatankuasa Penganjur KIHC 2027 yang memerlukannya untuk tugas masing-masing</li><li>Penyedia pembayaran yang dilantik oleh Penganjur, untuk memproses bayaran</li><li>Penganjur bersama, Universiti Antarabangsa Albukhary, hanya untuk akses tempat dan logistik</li><li>Pihak berkuasa CPD, untuk pemberian mata CPD</li></ul>
+<p>Penganjur tidak menjual data peribadi. Penaja dan pempamer tidak menerima butiran hubungan peserta tanpa persetujuan peserta.</p>
+<h3>4. Penyimpanan dan tempoh simpanan</h3><p>Data disimpan dalam sistem berkawalan akses yang digunakan oleh Jawatankuasa Penganjur. Data disimpan selama 2 tahun selepas persidangan untuk pengesahan sijil dan pelaporan, kemudian dipadam.</p>
+<h3>5. Hak anda</h3><p>Anda boleh meminta untuk melihat, membetulkan atau menarik balik persetujuan penggunaan data peribadi anda dengan menghantar e-mel kepada Sekretariat di <a href="mailto:persatuanppkakedah@gmail.com">persatuanppkakedah@gmail.com</a>. Menarik balik persetujuan sebelum persidangan mungkin menyebabkan pendaftaran anda tidak dapat dilengkapkan.</p>
+<h3>6. Gambar dan rakaman</h3><p>Gambar dan rakaman yang diambil semasa persidangan boleh digunakan dalam laporan, laman web persidangan dan media sosial Penganjur.</p>
+<h3>7. Perubahan polisi</h3><p>Sebarang pindaan kepada polisi ini akan dipaparkan di halaman ini berserta tarikh pindaan.</p>
+<p class="upd">Kemas kini terakhir: 4 November 2026</p></div></section>
+  </div>
+</dialog>
 <footer>
   <div class="wrap">
     <div class="foot-logos">
@@ -731,7 +878,8 @@ footer .brand span{color:#9fb5b0}
       <img class="badge" src="img/logo-pppkank.png" alt="Persatuan Pakar Perubatan Kesihatan Awam Negeri Kedah">
       <img class="aiu" src="img/logo-aiu-reverse.png" alt="Albukhary International University">
     </div>
-    <span data-i18n="foot">© 2027 Persatuan Pakar Perubatan Kesihatan Awam Negeri Kedah · Co-organised with Albukhary International University</span>
+    <span data-i18n="foot">© 2027 Persatuan Pakar Perubatan Kesihatan Awam Negeri Kedah (PPM-017-02-01032023) · Co-organised with Albukhary International University</span>
+    <span class="foot-links"><a href="mailto:persatuanppkakedah@gmail.com">persatuanppkakedah@gmail.com</a> · <a href="tel:+6047300191">+60 4-730 0191</a> · <a href="#terms" class="open-legal" data-doc="terms" data-i18n="tc.link">Terms &amp; Conditions</a> · <a href="#refund" class="open-legal" data-doc="refund" data-i18n="lg.refund">Refund Policy</a> · <a href="#privacy" class="open-legal" data-doc="privacy" data-i18n="lg.privacy">Privacy Policy</a></span>
   </div>
 </footer>
 
@@ -764,7 +912,7 @@ function renderTiers(){
   document.getElementById("tiers").innerHTML=TIERS.map(x=>{const d=x[lang]||x.en;return `<article class="tier ${x.k}${x.big?" big":""}" style="--m:${x.m}"><div class="tier-head"><span class="metal"><i></i>${esc(d[0])}</span><span class="price">${x.price}</span></div><h3>${esc(d[1])}</h3><p class="sub">${esc(d[2])}</p><ul>${d[3].map(b=>`<li>${esc(b)}</li>`).join("")}</ul></article>`}).join("");
 }
 const T={
-en:{"cat.my":"Malaysian participant","cat.intl":"International participant","cat.day":"Day registration","cond.my":"Early or standard rate to be confirmed after the venue quotation is received","cond.intl":"Exchange rate and payment method to be confirmed","cond.stu":"Limited quota with valid student identification","cond.day":"If operationally feasible and approved","lunch.l":["One dedicated 45–60-minute educational lunch symposium","Delegates' lunch under an agreed catering allocation","Acknowledgement in the programme, on-screen branding and approved digital promotion","One standard booth and three delegate passes","Session attendance summary, where data is available"],"cat.spec":"Specialists & consultants","cat.spec.s":"Medical, dental & public health specialists","cat.mo":"Medical, dental & veterinary officers","cat.mo.s":"Including pharmacists & scientific officers","cat.ah":"Allied health & other officers","cat.ah.s":"Nurses, AMOs, EHOs, local authority & agency staff","cat.stu":"Student","cat.stu.s":"Full-time, with valid student ID",
+en:{"tc.err":"Please read and agree to the Terms & Conditions, Refund Policy and Privacy Policy to continue.","cat.my":"Malaysian participant","cat.intl":"International participant","cat.day":"Day registration","cond.my":"Early or standard rate to be confirmed after the venue quotation is received","cond.intl":"Exchange rate and payment method to be confirmed","cond.stu":"Limited quota with valid student identification","cond.day":"If operationally feasible and approved","lunch.l":["One dedicated 45–60-minute educational lunch symposium","Delegates' lunch under an agreed catering allocation","Acknowledgement in the programme, on-screen branding and approved digital promotion","One standard booth and three delegate passes","Session attendance summary, where data is available"],"cat.spec":"Specialists & consultants","cat.spec.s":"Medical, dental & public health specialists","cat.mo":"Medical, dental & veterinary officers","cat.mo.s":"Including pharmacists & scientific officers","cat.ah":"Allied health & other officers","cat.ah.s":"Nurses, AMOs, EHOs, local authority & agency staff","cat.stu":"Student","cat.stu.s":"Full-time, with valid student ID",
 "t1.c":["Healthy Cities","Urban Health","Built Environment","Community Empowerment"],"t2.c":["Climate Change","Heat & Air Pollution","Water & Sanitation","Waste Management","Environmental Health"],"t3.c":["NCD","Mental Health","Healthy Ageing","Nutrition","Maternal & Child Health","Adolescent, Women's & Men's Health"],"t4.c":["Infectious Diseases","Zoonoses","Vector-borne Diseases","AMR","Disaster Risk Management","Emergency Preparedness"],"t5.c":["AI","Digital Health","Surveillance","Research","Smart Cities","Precision Public Health"],
 "who.c":["Public health specialists","Medical & dental officers","Pharmacists & allied health","Veterinary officers","Environmental health officers","Local authorities & planners","Disaster management agencies","Academics & students","NGOs & community leaders","Industry & exhibitors","International partners"],
 "done":(n,id,amt,m)=>`<b>Thank you, ${n}.</b> Your draft registration ${id} for ${amt} is saved. In the live site you would now be taken to ${m} to complete payment.`,
@@ -801,14 +949,14 @@ ms:{"nav.sponsors":"Penaja","sp.eye":"Penajaan & pameran","sp.title":"Perkongsia
 "who.c":["Pakar perubatan kesihatan awam","Pegawai perubatan & pergigian","Ahli farmasi & kesihatan bersekutu","Pegawai veterinar","Pegawai kesihatan persekitaran","PBT & perancang bandar","Agensi pengurusan bencana","Ahli akademik & pelajar","NGO & pemimpin komuniti","Industri & pempamer","Rakan antarabangsa"],
 "fee.local":"Peserta Malaysia (RM)","fee.intl":"Peserta antarabangsa (USD)","fee.cat":"Kategori","fee.fee":"Yuran","fee.cond":"Syarat","cat.my":"Peserta Malaysia","cat.intl":"Peserta antarabangsa","cat.day":"Pendaftaran harian","cond.my":"Kadar awal atau standard akan disahkan selepas sebut harga tempat diterima","cond.intl":"Kadar tukaran dan kaedah pembayaran akan disahkan","cond.stu":"Kuota terhad dengan kad pelajar yang sah","cond.day":"Jika boleh dilaksanakan dan diluluskan","fee.eb":"Awal","fee.norm":"Biasa","fee.onsite":"Di tapak","fee.inc":"Yuran merangkumi kit persidangan, minum pagi/petang dan makan tengah hari kedua-dua hari, sijil penyertaan dan mata CPD.","fee.note":"<b>Yuran cadangan.</b> Kadar awal atau standard akan disahkan selepas sebut harga tempat diterima.",
 "cat.spec":"Pakar & pakar perunding","cat.spec.s":"Pakar perubatan, pergigian & kesihatan awam","cat.mo":"Pegawai perubatan, pergigian & veterinar","cat.mo.s":"Termasuk ahli farmasi & pegawai sains","cat.ah":"Kesihatan bersekutu & pegawai lain","cat.ah.s":"Jururawat, PPP, PKP, kakitangan PBT & agensi","cat.stu":"Pelajar","cat.stu.s":"Sepenuh masa, dengan kad pelajar sah",
-"pay.title":"Kaedah pembayaran","pay.local":"Malaysia","pay.fpx":"Bayaran segera dari akaun bank Malaysia. Resit dikeluarkan secara automatik.","pay.card.h":"Kad kredit / debit","pay.all":"Malaysia & antarabangsa","pay.card":"Visa dan Mastercard melalui gerbang pembayaran selamat. Pilihan terbaik untuk peserta luar negara.","pay.tt.h":"Pindahan bank (TT / SWIFT)","pay.intl":"Antarabangsa","pay.tt":"Pindahan ke akaun persatuan. Semua caj bank ditanggung peserta. Muat naik bukti pembayaran.","pay.lo.h":"Pesanan Tempatan (LO) Kerajaan","pay.gov":"Agensi Malaysia","pay.lo":"Untuk pegawai yang ditaja jabatan. Muat naik LO; invois akan dikeluarkan.","pay.lo.short":"LO Kerajaan",
+"pay.title":"Kaedah pembayaran","pay.lede":"Bayar secara dalam talian dalam beberapa minit dan terima e-resit rasmi serta-merta.","pay.rec1":"Disyorkan untuk peserta Malaysia","pay.rec2":"Peserta Malaysia & antarabangsa","pay.fpx2":"Bayar terus dari akaun bank Malaysia anda melalui FPX. Disokong oleh semua bank utama di Malaysia, tanpa memerlukan kad.","pay.fpx.t1":"Pengesahan serta-merta","pay.fpx.t2":"E-resit rasmi melalui e-mel","pay.fpx.t3":"Akaun peribadi dan korporat","pay.card2":"Visa atau Mastercard melalui gerbang pembayaran yang selamat. Boleh digunakan untuk kad keluaran Malaysia dan luar negara.","pay.card.t1":"Pengesahan serta-merta","pay.card.t2":"E-resit rasmi melalui e-mel","pay.card.t3":"Pembayaran selamat dan disulitkan","pay.other":"Pilihan lain","pay.local":"Malaysia","pay.fpx":"Bayaran segera dari akaun bank Malaysia. Resit dikeluarkan secara automatik.","pay.card.h":"Kad kredit / debit","pay.all":"Malaysia & antarabangsa","pay.card":"Visa dan Mastercard melalui gerbang pembayaran selamat. Pilihan terbaik untuk peserta luar negara.","pay.tt.h":"Pindahan bank (TT / SWIFT)","pay.intl":"Antarabangsa","pay.tt":"Pindahan ke akaun persatuan. Semua caj bank ditanggung peserta. Muat naik bukti pembayaran.","pay.lo.h":"Pesanan Tempatan (LO) Kerajaan","pay.gov":"Agensi Malaysia","pay.lo":"Untuk pegawai yang ditaja jabatan. Muat naik LO; invois akan dikeluarkan.","pay.lo.short":"LO Kerajaan",
 "how.title":"Cara mendaftar","how.1":"Isi maklumat anda","how.1p":"Nama, organisasi, kategori dan negara.","how.2":"Pilih kaedah pembayaran","how.2p":"FPX, kad, pindahan bank atau LO kerajaan.","how.3":"Terima pengesahan","how.3p":"Resit rasmi dan nombor pendaftaran melalui e-mel.","how.4":"Daftar masuk dengan kod QR","how.4p":"Ambil kit anda di lobi AIU pada Hari 1.",
 "f.name":"Nama penuh (seperti dalam sijil)","f.email":"E-mel","f.country":"Negara","f.other":"Lain-lain","f.org":"Organisasi","f.cat":"Kategori","f.pay":"Kaedah pembayaran","f.total":"Jumlah perlu dibayar","f.submit":"Teruskan ke pembayaran","f.demo":"DEMO · TIADA DATA DIHANTAR",
 "faq.eye":"Soalan lazim","faq.title":"Perlu <em>diketahui</em>","q1":"Bolehkah saya mendapatkan surat jemputan untuk visa?","a1":"Boleh. Peserta antarabangsa boleh memohon surat jemputan rasmi selepas mendaftar. Peruntukkan sekurang-kurangnya empat minggu untuk proses visa.","q2":"Adakah saya akan menerima resit rasmi?","a2":"Setiap bayaran akan menerima resit rasmi melalui e-mel, sesuai untuk tuntutan majikan.","q3":"Apakah polisi pembatalan?","a3":"Polisi bayaran balik akan diterbitkan bersama portal pendaftaran. Penggantian peserta lazimnya dibenarkan.","q4":"Perlukah saya mendaftar untuk membentangkan abstrak?","a4":"Ya. Sekurang-kurangnya seorang penulis bagi setiap abstrak yang diterima wajib mendaftar sebelum tarikh akhir pendaftaran awal.",
-"ct.eye":"Hubungi sekretariat","ct.title":"Kami menanti <em>kehadiran</em> anda","ct.lede":"Ada soalan tentang pendaftaran, pembayaran atau atur cara? Hubungi sekretariat KIHC 2027.","ct.email":"E-mel","ct.phone":"Telefon","ct.addr":"Sekretariat","ct.tbc":"Akan diumumkan",
-"foot":"© 2027 Persatuan Pakar Perubatan Kesihatan Awam Negeri Kedah · Dianjurkan bersama Universiti Antarabangsa Albukhary",
+"ct.eye":"Hubungi sekretariat","ct.title":"Kami menanti <em>kehadiran</em> anda","ct.lede":"Ada soalan tentang pendaftaran, pembayaran atau atur cara? Hubungi sekretariat KIHC 2027.","ct.email":"E-mel","ct.phone":"Telefon","ct.addr":"Sekretariat","ct.ros":"No. daftar ROS","ct.tbc":"Akan diumumkan",
+"foot":"© 2027 Persatuan Pakar Perubatan Kesihatan Awam Negeri Kedah (PPM-017-02-01032023) · Dianjurkan bersama Universiti Antarabangsa Albukhary",
 "done":(n,id,amt,m)=>`<b>Terima kasih, ${n}.</b> Draf pendaftaran ${id} berjumlah ${amt} telah disimpan. Dalam laman sebenar, anda akan dibawa ke ${m} untuk melengkapkan pembayaran.`,
-"m.fpx":"halaman bank FPX","m.card":"halaman pembayaran kad yang selamat","m.tt":"maklumat bank dan muat naik bukti bayaran","m.lo":"halaman muat naik LO","err":"Sila masukkan nama dan alamat e-mel yang sah."}
+"m.fpx":"halaman bank FPX","m.card":"halaman pembayaran kad yang selamat","m.tt":"maklumat bank dan muat naik bukti bayaran","m.lo":"halaman muat naik LO","err":"Sila masukkan nama dan alamat e-mel yang sah.","tc.link":"Terma & Syarat","tc.agree":"Saya telah membaca dan bersetuju dengan","tc.err":"Sila baca dan bersetuju dengan Terma & Syarat, Polisi Bayaran Balik dan Polisi Privasi untuk meneruskan.","tc.and":"dan","lg.terms":"Terma & Syarat","lg.refund":"Polisi Bayaran Balik","lg.privacy":"Polisi Privasi"}
 };
 // capture English defaults from the markup
 const EN={};
@@ -847,12 +995,21 @@ function total(e){
   document.querySelectorAll(".radios label").forEach(l=>{l.style.opacity=l.querySelector("input").disabled?.45:1});
 }
 document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
+const dlg=document.getElementById("terms");
+function showDoc(d){document.querySelectorAll("#legal-body section").forEach(x=>x.hidden=x.dataset.doc!==d);document.querySelectorAll(".legal-tabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.doc===d));document.getElementById("legal-body").scrollTop=0}
+function openLegal(d){showDoc(d||"terms");if(!dlg.open){try{dlg.showModal()}catch(e){dlg.setAttribute("open","")}}}
+document.addEventListener("click",e=>{const a=e.target.closest(".open-legal");if(a){e.preventDefault();openLegal(a.dataset.doc)}});
+document.querySelectorAll(".legal-tabs button").forEach(b=>b.addEventListener("click",()=>showDoc(b.dataset.doc)));
+document.getElementById("terms-close").addEventListener("click",()=>dlg.close());
+dlg.addEventListener("click",e=>{if(e.target===dlg)dlg.close()});
+{const h=location.hash.slice(1);if(["terms","refund","privacy"].includes(h))openLegal(h);}
 ["f-country","f-cat"].forEach(id=>document.getElementById(id).addEventListener("change",total));
 document.getElementById("reg-form").addEventListener("submit",e=>{
   e.preventDefault();
   const n=document.getElementById("f-name").value.trim(), m=document.getElementById("f-email").value.trim(), out=document.getElementById("f-done");
   out.hidden=false;
   if(!n||!/^\S+@\S+\.\S+$/.test(m)){out.textContent=t("err");return}
+  if(!document.getElementById("f-agree").checked){out.textContent=t("tc.err");return}
   const pay=document.querySelector('input[name="pay"]:checked').value;
   const id="KIHC27-"+String(Math.floor(1000+Math.random()*9000));
   out.innerHTML=t("done")(esc(n),id,document.getElementById("f-total").textContent,t("m."+pay));
